@@ -3,18 +3,6 @@ name: getting-started
 description: Use this skill to guide developers, support engineers, or sales/solutions engineers through the initial Malga integration journey. Triggers on questions about getting started with Malga, creating an account, obtaining API credentials (X-Client-Id / X-Api-Key), understanding sandbox versus production environments, activating an account for production, and choosing the right integration method (API Charges, API Sessions, SDK Node, Checkout SDK, Checkout Full, Link de Pagamento, or VTEX plugin). Also covers "qual o melhor método para integrar com a Malga", "como começo", "como obter chaves", "como ativar minha conta Malga", "Malga onboarding", and "Malga sandbox vs produção".
 ---
 
-```
-                 _
- _ __ ___   __ _| | __ _  __ _
-| '_ ` _ \ / _` | |/ _` |/ _` |
-| | | | | | (_| | | (_| | (_| |
-|_| |_| |_|\__,_|_|\__, |\__,_|
-                   |___/
-
-   Payment orchestration for Brazil
-   Orquestração de pagamentos para o Brasil
-```
-
 # Getting started with Malga
 
 Malga is a Brazilian payment orchestrator and provider. A single integration gives merchants access to multiple payment gateways, antifraud providers, intelligent routing (Fluxos Inteligentes), tokenization, 3DS2, split, recurrence, and analytics.

@@ -10,7 +10,7 @@ This repository hosts a Claude plugins marketplace maintained by the Malga Devel
 
 | Plugin | Version | Description |
 |---|---|---|
-| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.6.0 | Full-product integration toolkit: 15 skills covering Charges/Sessions, Payment Methods (credit, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), SDKs (Node, Checkout, Checkout Full), Payment Link, VTEX, Tokenization (Hosted Fields, PCI, network tokens), Smart Flows (orchestration), 3DS2, Antifraud (sync/async/hybrid), Split, Recurrence, Webhooks (Ed25519 v1.1), and Analytics. |
+| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.7.0 | Full-product integration toolkit: 15 skills covering Charges/Sessions, Payment Methods (credit, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), SDKs (Node, Checkout, Checkout Full), Payment Link, VTEX, Tokenization (Hosted Fields, PCI, network tokens), Smart Flows (orchestration), 3DS2, Antifraud (sync/async/hybrid), Split, Recurrence, Webhooks (Ed25519 v1.1), and Analytics. |
 
 ## Install
 

@@ -2,6 +2,17 @@
 
 All notable changes to `malga-integration-toolkit` are documented here. Format inspired by [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.7.0] — 2026-05-20
+
+### Added
+
+- **30 per-provider references** in `skills/providers/references/`, one file per integrated provider: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga (subadquirente), Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me (legacy), Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+- Each reference contains the provider's full feature × method matrix (Crédito, Pix, Boleto, Voucher, Apple Pay × all 14 feature rows) with **✓** / **✗** / **—** semantics, derived from the official `documentations/providers/<slug>.mdx` pages.
+
+### Changed
+
+- `providers` skill now points at the per-provider references and includes the full index. The example feature matrix in the skill body was removed (Adyen-specific data is in its reference now).
+
 ## [0.6.0] — 2026-05-20
 
 ### Added (13 new skills closing every coverage gap)

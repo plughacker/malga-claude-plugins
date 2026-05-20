@@ -20,28 +20,51 @@ Each has a dedicated page at `documentations/providers/<name>` documenting:
 
 When integrating, **always read the provider's page** for the merchant's chosen gateway before designing the Smart Flow.
 
-## Per-provider feature matrix (template)
+## Per-provider feature matrix (references)
 
-Each provider page has a table of services × methods. Example (Adyen):
+This skill ships with one reference file per provider in `references/<provider-slug>.md`. Each file has:
 
-| Service | Credit | Pix | Boleto | Voucher | Apple Pay |
-|---|---|---|---|---|---|
-| Cobrança | ✅ | ✅ | ✅ | — | (limited) |
-| Pré-autorização | ✅ | — | — | — | (limited) |
-| Captura parcial | ✅ | — | — | — | (limited) |
-| Estorno total | ✅ | ✅ | — | — | (limited) |
-| Estorno parcial | ✅ | ✅ | — | — | (limited) |
-| Split | (limited) | (limited) | (limited) | — | — |
-| Antifraude próprio | ✅ | — | — | — | — |
-| 3DS | ✅ | — | — | — | — |
-| Token de Bandeira | ✅ | — | — | — | — |
-| Validação de cartão (zero dollar) | (limited) | — | — | — | — |
-| Flag de recorrência | (limited) | — | — | — | — |
-| Notificação de disputa | ✅ | — | — | — | — |
-| Notificação de chargeback | ✅ | — | — | — | — |
-| Suporte a moedas internacionais | ✅ | ✅ | ✅ | ✅ | — |
+- A short description of the provider.
+- The full feature × method matrix (Crédito, Pix, Boleto, Voucher, Apple Pay × Cobrança, Pré-autorização, Captura parcial, Estorno total/parcial, Split, Antifraude próprio, 3DS, Token de Bandeira, Validação de cartão (zero dollar), Flag de recorrência, Notificação de disputa/chargeback, Multi-currency).
+- The legend: **✓** supported · **✗** not supported by the provider · **—** offered by the provider but not yet wired up in Malga's API.
+- A link to the live page.
 
-Always check the live provider page for the latest matrix. Features get added over time.
+When a question is about a specific provider, **read the corresponding reference** before answering. Available references (30 providers):
+
+| Slug | Reference |
+|---|---|
+| `adyen` | `references/adyen.md` |
+| `banco-do-brasil` | `references/banco-do-brasil.md` |
+| `banrisul` | `references/banrisul.md` |
+| `barte` | `references/barte.md` |
+| `bolt` | `references/bolt.md` |
+| `braintree` | `references/braintree.md` |
+| `braspag` | `references/braspag.md` |
+| `bs2` | `references/bs2.md` |
+| `cielo` | `references/cielo.md` |
+| `drip` | `references/drip.md` |
+| `getnet` | `references/getnet.md` |
+| `getnet-sep` | `references/getnet-sep.md` |
+| `klap` | `references/klap.md` |
+| `malga` (subadquirente) | `references/malga.md` |
+| `mapinvest` | `references/mapinvest.md` |
+| `mercado-pago` | `references/mercado-pago.md` |
+| `nupay` | `references/nupay.md` |
+| `owempay` | `references/owempay.md` |
+| `pagarme` (legacy) | `references/pagarme.md` |
+| `pagarme-v5` | `references/pagarme-v5.md` |
+| `pagseguro` | `references/pagseguro.md` |
+| `paypal` | `references/paypal.md` |
+| `picpay` | `references/picpay.md` |
+| `rede` | `references/rede.md` |
+| `safrapay` | `references/safrapay.md` |
+| `sandbox` | `references/sandbox.md` |
+| `stripe` | `references/stripe.md` |
+| `vr` | `references/vr.md` |
+| `worldpay` | `references/worldpay.md` |
+| `zoop` | `references/zoop.md` |
+
+Cross-check the reference against the live docs (`https://docs.malga.io/documentations/providers/<slug>`) when the answer depends on a feature that may have shipped recently — the reference is a snapshot, the live page is current.
 
 ## Configuration
 

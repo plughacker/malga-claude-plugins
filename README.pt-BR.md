@@ -8,7 +8,7 @@ Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork. Mantid
 
 | Plugin | Versão | Descrição |
 |---|---|---|
-| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.6.0 | Kit completo de integração com a Malga. Tem 15 skills cobrindo as APIs de Charges e Sessions, Métodos de Pagamento (cartão, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), os SDKs (Node, Checkout, Checkout Full), o Link de Pagamento, o conector VTEX, Tokenização (Hosted Fields, PCI, network tokens), Fluxos Inteligentes (orquestração), 3DS2, Antifraude (síncrono/assíncrono/híbrido), Split, Recorrência, Webhooks (Ed25519 v1.1) e Analytics. |
+| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.7.0 | Kit completo de integração com a Malga. Tem 15 skills cobrindo as APIs de Charges e Sessions, Métodos de Pagamento (cartão, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), os SDKs (Node, Checkout, Checkout Full), o Link de Pagamento, o conector VTEX, Tokenização (Hosted Fields, PCI, network tokens), Fluxos Inteligentes (orquestração), 3DS2, Antifraude (síncrono/assíncrono/híbrido), Split, Recorrência, Webhooks (Ed25519 v1.1) e Analytics. |
 
 ## Como instalar
 
