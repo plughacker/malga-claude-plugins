@@ -31,27 +31,24 @@ Cache results aggressively; the API is rate-limited and intended for periodic re
 
 ## Reports API — CSV exports
 
-For row-level data, request an export and download the file when ready (async):
+For row-level data, request an export, poll until it is ready, then download the file(s):
 
-```bash
-POST /v1/reports/exports
-{
-  "type": "charges",
-  "filters": {
-    "createdAtFrom": "2026-05-01T00:00:00Z",
-    "createdAtTo":   "2026-05-31T23:59:59Z",
-    "status":        ["captured", "refunded"]
-  },
-  "columns": ["id", "amount", "createdAt", "status", "paymentMethod.type", "provider", "customer.document"]
-}
-```
+| Action | Endpoint |
+|---|---|
+| Create export | `POST /v1/reports` |
+| Get export details | `GET /v1/reports/{id}` |
+| Download file (paginated) | `GET /v1/reports/{id}/files/{pageNumber}` |
 
-```bash
-GET /v1/reports/exports/{exportId}              # poll status
-GET /v1/reports/exports/{exportId}/download     # 302 to S3 URL
-```
+Exports may produce multiple CSV files (paginated). The detail response includes a `files` array with URLs (e.g., `https://api.malga.io/v1/reports/{id}/files/1`).
 
-Custom column lists let the merchant shape the export to match their BI tooling. Exports for full months can take minutes — poll, don't block.
+Reference: <https://docs.malga.io/api-reference/reports/exportar-dados-da-base>.
+
+Tips:
+
+- Filter `status` aligned with the Charges status enum (`authorized`, `voided`, `charged_back`, `refund_pending`, etc., see `api-charges` skill).
+- Exports for a full month can take minutes. Poll the detail endpoint; do not block.
+- Cap the custom `columns` list to what the BI tooling actually needs. Wider exports take longer.
+- For very large windows, expect pagination: iterate over the `files[]` array to fetch all pages.
 
 ## Dashboard analytics
 
@@ -77,7 +74,7 @@ Match by Malga's `id` field, not by `orderId` (merchant-controlled and may colli
 
 ## Pitfalls
 
-- **Time zones** — Reports use UTC by default, while the Dashboard uses America/Sao_Paulo. Pass explicit ISO timestamps and document which zone your finance team expects.
-- **Status windows** — `captured` does not mean "settled". For cash-flow reporting, join with payout data.
-- **Approval rate denominators** — use **authorization attempts** as the denominator, not "all charges" (which includes pre-auth, voided, etc.).
-- **Rate limits** — both APIs are throttled. For Analytics, cache and refresh on a schedule.
+- **Time zones**. Pass explicit ISO timestamps with timezone offsets in queries and exports. Confirm with the merchant's finance team whether they expect UTC or America/Sao_Paulo.
+- **Status windows**. `authorized` does not mean "settled". For cash-flow reporting, join with payout data via the Payouts API.
+- **Approval rate denominators**. Use authorization attempts as the denominator, not "all charges". `pre_authorized` and `capture_pending` should be excluded from the denominator depending on the question being asked.
+- **Rate limits**. Both APIs are throttled. For Analytics, cache and refresh on a schedule; do not call per page-view.

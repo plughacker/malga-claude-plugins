@@ -11,23 +11,24 @@ Malga is a Brazilian payment orchestrator and provider — one integration, many
 
 ### What's inside
 
-Fourteen skills, one per product area:
+Fifteen skills, one per product area:
 
 | Skill | Covers |
 |---|---|
 | `getting-started` | Account setup, credentials, sandbox vs production, choosing an integration method |
 | `api-charges` | Direct REST: Charges and Sessions APIs, idempotency, status lifecycle |
-| `sdk-node` | `@malga/node` SDK, typed client, error handling, webhook verification helper |
-| `checkout-sdk` | Drop-in Checkout SDK and headless Checkout Full SDK (frontend) |
+| `payment-methods` | Each `paymentType` (credit, pix, boleto, nupay, drip, voucher, picpay, apple_pay, click_to_pay): when to use, refund semantics, fields |
+| `sdk-node` | Official Node SDK: client setup, idempotency, pitfalls, where to find current method shapes |
+| `checkout-sdk` | Drop-in `<malga-checkout>` web component and headless Checkout Full SDK |
 | `payment-link` | Hosted no-code payment link via Dashboard or Sessions API |
-| `vtex-integration` | VTEX connector — install, configure, supported features |
+| `vtex-integration` | VTEX connector: install, configure, supported features |
 | `smart-flows` | Payment orchestration: operators, properties, metadata, load balancing, retries |
-| `tokenization` | Hosted Fields, PCI DSS Level I, Client Tokens, Cards API, network tokens |
+| `tokenization` | Hosted Fields, PCI DSS Level I, Client Tokens, Cards API, network tokens, zero-dollar |
 | `three-ds-two` | 3DS2 in Smart Flows, frictionless vs challenge, liability shift |
-| `antifraud` | Antifraud providers, score-driven decisions, Smart Flow branches |
+| `antifraud` | Sync/async/hybrid lifecycles, automation options, fingerprints, Smart Flow integration |
 | `split-payments` | Sellers, Vendors, marketplace splits, payouts |
-| `recurrence` | Subscriptions API, cycles, dunning, pause/cancel/reactivate |
-| `webhooks` | Event catalog, HMAC signature verification, retry/idempotency |
+| `recurrence` | Subscriptions API, items, cycles, dunning, pause/cancel/reactivate, MIT |
+| `webhooks` | Ed25519 signature verification, event catalog (transaction.*, subscription.*, seller.*), retry schedule |
 | `analytics-reporting` | Analytics API, Reports CSV exports, Dashboard analytics |
 
 ### Architecture
@@ -121,6 +122,8 @@ Plugin para o Claude. Instale pela UI de plugins (Cowork ou Claude Code), ou car
 
 ## Versão / Version
 
-`0.1.0` — primeiro release. Cobertura ampla por área de produto; profundidade de exemplos em `api-charges/references/charges-payloads.md`. Próximos passos: adicionar referências detalhadas para `smart-flows` e `webhooks`, e integrar com o MCP server quando disponível.
+`0.4.0` — third audit pass, this time against the actual SDK source code (`malga@0.0.2`). Confirmed and corrected: `webhooks.verify()` is **synchronous** (not async), refund REST endpoint is `POST /charges/{id}/void` (not `/refund`), full `MalgaErrorResponse` type schema documented including 4 error types and 24 declined codes, `AuthScope` enum is exported, `charges.create` has a dual mode (with/without sessionId).
 
-`0.1.0` — first release. Broad coverage by product area; depth in `api-charges/references/charges-payloads.md`. Next: add detailed references for `smart-flows` and `webhooks`, and wire up the MCP server once available.
+`0.3.0` — second audit pass, this time against the Malga Mintlify docs source and the SDK reference. Significant corrections: `sdk-node` (real package name is `malga`, simplified SDK schema, real method namespaces, real error structure, real auth/webhook helpers), `checkout-sdk` (configuration via JS properties: `paymentMethods`, `transactionConfig`, `dialogConfig`; CSS-variable theming), `tokenization` (real package `@malga/tokenization`, fixed container IDs, `on()` + `tokenize()` methods returning `{tokenId, error}`), `api-charges/references` (`qrCodeData`/`qrCodeImageUrl` field names, full Boleto schema, split-rule required flags). See `CHANGELOG.md` at the marketplace root for the full change list.
+
+`0.3.0` — segunda passada de auditoria, agora contra o source Mintlify da documentação e a referência do SDK. Correções significativas: `sdk-node` (nome do pacote correto é `malga`, schema simplificado do SDK, namespaces reais, estrutura real de erro, helpers reais de auth/webhook), `checkout-sdk` (configuração via propriedades JS: `paymentMethods`, `transactionConfig`, `dialogConfig`; tema via CSS variables), `tokenization` (pacote real `@malga/tokenization`, IDs fixos dos containers, métodos `on()` + `tokenize()` retornando `{tokenId, error}`), `api-charges/references` (nomes `qrCodeData`/`qrCodeImageUrl`, schema completo de Boleto, flags obrigatórias de split). Veja `CHANGELOG.md` na raiz do marketplace.

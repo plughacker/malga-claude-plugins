@@ -1,66 +1,119 @@
 ---
 name: antifraud
-description: Use this skill when configuring or troubleshooting antifraud on Malga charges. Triggers on questions about "antifraude Malga", "Malga antifraud providers", "Clearsale Malga", "Konduto Malga", "fraud score Malga", "ClearSale risk Malga", "denied antifraud Malga", "manual review Malga", "challenge antifraud Malga", "Smart Flow antifraud branch", "device fingerprint Malga". Covers supported antifraud providers, how antifraud fits inside the Smart Flow, score-based decisions, sandbox forcing of antifraud status, and the interaction between antifraud and 3DS2.
+description: Use this skill when configuring or troubleshooting antifraud on Malga charges. Triggers on questions about "antifraude Malga", "Malga antifraud providers", "Clearsale Malga", "Konduto Malga", "fraud analysis Malga", "approved reproved Malga", "Smart Flow antifraud branch", "device fingerprint Malga", "antifraude síncrono assíncrono Malga", "runBeforeCharge", "captureOnApprove", "refundOnReprove". Covers sync vs async vs hybrid antifraud lifecycles, configuration options, the status outcomes returned (pending / approved / reproved), and the interaction between antifraud and 3DS2.
 ---
 
 # Malga antifraud
 
-Malga supports multiple antifraud providers configured per Smart Flow branch. The antifraud step runs **before pre-authorization** and the decision (`approved`, `denied`, `review`, `not_analyzed`) drives whether the charge proceeds to a payment provider.
+Malga's antifraud sits inside the Smart Flow. The antifraud step runs **before pre-authorization**: the provider returns a decision (`pending`, `approved`, or `reproved`) and that decision drives whether the charge proceeds to a payment provider or terminates.
 
-Reference: <https://docs.malga.io/documentations/anti-fraud>
+Reference: <https://docs.malga.io/documentations/anti-fraud/intro>
 
-## Supported providers (Dashboard configurable)
+## Sync vs async vs hybrid lifecycles
 
-Malga integrates with the main BR antifraud vendors — ClearSale, Konduto, Cybersource, Riskified, Signifyd, and others. Exact list and configuration steps live in the Dashboard under "Provedores de antifraude". The merchant pastes the antifraud-provider's credentials there.
+Antifraud providers behave in one of three ways:
+
+- **Sync** — evaluation finishes during the create-charge request. The response of `POST /charges` already includes the antifraud outcome.
+- **Async** — evaluation returns a `pending` status. The final decision arrives later via a webhook event.
+- **Hybrid** — the provider may behave either way per transaction. Configure these as async (`productType: "ASYNC"`).
+
+The merchant choses the model per provider in the Dashboard.
+
+## Configuration options (per merchant / provider)
+
+When attaching an antifraud provider to a merchant in the Dashboard, the following knobs control automation:
+
+| Option | Effect |
+|---|---|
+| `runBeforeCharge` | Run antifraud before the payment provider. Cannot be enabled for async or hybrid providers. |
+| `captureOnApprove` | Auto-capture the charge when antifraud approves. |
+| `refundOnReprove` | Auto-cancel or refund the charge when antifraud reproves. |
+| `captureOnError` | Capture the charge when antifraud itself errors. |
+| `refundOnError` | Refund the charge when antifraud itself errors. |
+| `productType` | `SYNC` or `ASYNC`. For hybrid providers, use `ASYNC`. |
+
+The "send unanalyzed transactions for calibration" option in the Dashboard lets you feed antifraud with transactions that bypassed it, improving the provider's model over time. Useful when calibrating a new provider before relying on it.
+
+## Status outcomes
+
+When the Smart Flow routes a charge through antifraud, a `transactionRequest` of type `anti_fraud` is created. It carries one of three statuses:
+
+| Status | Meaning |
+|---|---|
+| `pending` | The transaction was sent for evaluation and the response is async. |
+| `approved` | The antifraud provider approved the transaction. |
+| `reproved` | The antifraud provider rejected the transaction. |
+
+For async providers, `pending` resolves to `approved` or `reproved` once the provider posts back. Listen for the relevant webhook to learn the final outcome.
 
 ## Smart Flow integration
 
-Each Smart Flow branch supports **one** antifraud provider. The flow:
+Each Smart Flow branch supports **one** antifraud provider. To run different antifraud strategies for different charges, use Smart Flow conditionals to route through different branches.
 
-1. Charge arrives → Smart Flow selects branch (by conditional rules).
-2. If the branch has an antifraud provider, Malga calls it with charge + customer + metadata.
-3. Antifraud responds with a decision and (usually) a score.
-4. On `approved` → charge proceeds to the first payment provider in the branch.
-   On `denied` → charge terminates as `failed` with reason `antifraud_denied`.
-   On `review` → charge is held pending manual review.
+Patterns:
 
-To skip antifraud, design a branch with no antifraud provider — useful for low-risk segments (e.g., known customers, recurring renewals).
-
-## Routing strategies
-
-| Pattern | Smart Flow rule |
+| Goal | Smart Flow rule |
 |---|---|
-| Antifraud only above threshold | `transaction.amount >= 30000` → branch with antifraud; else branch without |
-| Test two antifraud providers | `math/random < 0.5` → ClearSale branch; else Konduto branch |
-| Bypass for trusted users | `metadata.customerTier = "vip"` → branch without antifraud |
-| Stricter for cross-border | `metadata.country != "BR"` → stricter antifraud branch |
+| Antifraud only above a threshold | `transaction.amount >= 30000` → branch with antifraud; else branch without. |
+| A/B test two antifraud providers | `math/random < 0.5` → ClearSale branch; else Konduto branch. |
+| Bypass antifraud for trusted users | `metadata.customerTier = "vip"` → branch without antifraud. |
+| Stricter for cross-border | `metadata.country != "BR"` → stricter antifraud branch. |
 
-## Sandbox helpers
+See the `smart-flows` skill for the operator and metadata mechanics.
 
-Force an antifraud outcome on sandbox:
+## Fingerprints (device data)
 
-```bash
-PATCH /v1/charges/{chargeId}/sandbox-antifraud-status
-{ "status": "denied" }
+Many antifraud providers require device fingerprint data to score risk accurately. Some require it mandatorily:
+
+| Provider | Fingerprint required |
+|---|---|
+| ClearSale | **Yes** |
+| Others | Recommended for quality |
+
+Use the provider's SDK on the client side to capture the fingerprint and forward it in the charge payload (typically inside `fraudAnalysis` or a provider-specific block). Missing the fingerprint when required will cause the provider to deny or skip evaluation.
+
+## Charge-level fields
+
+The charge payload accepts a `fraudAnalysis` object for antifraud-relevant data:
+
+```json
+"fraudAnalysis": {
+  "deviceId":     "<FROM_PROVIDER_SDK>",
+  "ip":           "<CUSTOMER_IP>",
+  "browserInfo":  { ... },
+  "shippingAddress": { ... },
+  ...
+}
 ```
 
-Useful for testing the merchant's downstream behavior (notifications, retry policies, CX dashboards) without real antifraud calls.
+The exact schema depends on the chosen provider. Refer to <https://docs.malga.io/api-reference/charges/realizar-nova-cobranca> for the latest accepted fields.
+
+## Sandbox testing
+
+For sync providers, the `POST /charges` response already carries the outcome. For async or hybrid providers, the Dashboard allows manually pushing the antifraud outcome to trigger the downstream automation (capture or refund per the merchant's options).
+
+Useful endpoints:
+
+- `PATCH /v1/charges/{id}` to force the antifraud status to `approved` or `reproved` in sandbox.
+- Charge sandbox status push: `POST /v1/charges/{id}` with `{ "status": "..." }` (see `api-charges` skill).
 
 ## Antifraud + 3DS2
 
-These are independent layers:
+These are independent layers and can run on the same branch:
 
-- Antifraud — merchant's own scoring layer; can route or block.
-- 3DS2 — issuer-side authentication; grants liability shift on success.
+- **Antifraud** is the merchant's risk scoring. It runs before authorization and can block.
+- **3DS2** is the issuer's authentication. On success it grants liability shift.
 
-Both can run in the same branch. Typical order: antifraud first (fast, no UX), then 3DS2 only if the charge is high-risk after antifraud says `approved`. Configure both in the same Smart Flow branch.
+Typical order on a high-risk branch: antifraud first (fast, no UX), then 3DS2 if the antifraud says `approved`. Configure both in the same Smart Flow branch.
 
-## Manual review queue
+## Supported providers
 
-Charges in `review` state sit pending in the Malga Dashboard until a CX agent (or an automated webhook consumer) decides. To advance them programmatically, listen for the `charge.review` event and use the agent's decision endpoint (per provider — typically Dashboard-only).
+The list of supported antifraud providers is maintained in the Dashboard and at the type table page. Highlights: ClearSale, Konduto, B2E, and others. Source of truth: <https://docs.malga.io/documentations/type-tables/antifraude-providers>.
 
 ## Pitfalls
 
-- **Antifraud retries do not cross providers**. Once pre-authorized on a provider, the antifraud decision is locked. Don't expect "try ClearSale, then Konduto" inside one branch.
-- **Metadata is what antifraud sees**. Send rich customer/device data via `paymentFlow.metadata` (channel, deviceId, IP geolocation hints) — antifraud quality depends on signal richness.
-- **`not_analyzed`** usually means the provider was unreachable or configuration is missing. Check Dashboard logs.
+- **`runBeforeCharge` is sync-only**. Attempting to enable it on an async provider will be rejected.
+- **`pending` is not a final state**. The merchant's downstream code (and the customer-facing UI) must handle the eventual `approved` / `reproved` notification.
+- **Missing fingerprint** can quietly degrade the antifraud's confidence and increase false negatives, even when not strictly required.
+- **`reproved` is not `denied`**. The word is `reproved` in Malga's API and dashboards; merchant-facing messaging should match.
+- **Antifraud retries do not cross providers**. Once the antifraud chose a provider for a branch, the decision is locked. Don't expect "try ClearSale then Konduto" within a single branch.

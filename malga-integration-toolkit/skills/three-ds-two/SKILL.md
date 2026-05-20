@@ -35,9 +35,51 @@ The Smart Flow decides whether to invoke 3DS2 before pre-authorization.
 
 ## Frontend integration
 
-3DS2 challenge UI is rendered by the **Checkout SDK** or **Checkout Full SDK** automatically when the flow demands it. The merchant doesn't host the challenge — Malga's SDK opens a modal iframe served by the issuer's ACS.
+3DS2 challenge UI is rendered by the **Checkout SDK** or **Checkout Full SDK** automatically when the flow demands it. The merchant does not host the challenge directly: Malga's SDK opens a modal iframe served by the issuer's ACS.
 
-For pure REST integrations without the SDK, the response from `POST /charges` may include a `nextAction` of type `3ds-challenge` with a URL. The merchant must redirect the customer or open it in an iframe and wait for the result webhook.
+For pure REST integrations without the SDK, the charge response carries a `threeDSecure2` block with the authentication context. The merchant uses `redirectURL` to send the customer through the challenge and `requestorURL` as the return origin, then waits for the result via webhook (`transaction.authorized` or `transaction.failed`).
+
+### Request — what the merchant sends
+
+The charge payload accepts a `threeDSecure2` block with the browser, address and cardholder details required by the issuer:
+
+```json
+"threeDSecure2": {
+  "browser": {
+    "acceptHeader":     "...",
+    "colorDepth":       24,
+    "javaEnabled":      false,
+    "javaScriptEnabled":true,
+    "language":         "pt-BR",
+    "screenHeight":     1080,
+    "screenWidth":      1920,
+    "timeZoneOffset":   "-180",
+    "userAgent":        "...",
+    "ip":               "203.0.113.5"
+  },
+  "billingAddress":  { ... },
+  "shippingAddress": { ... },
+  "cardHolder":      { "email": "...", "mobilePhone": "..." },
+  "redirectURL":     "https://example.com/return",
+  "requestorURL":    "https://example.com"
+}
+```
+
+### Response — what comes back (`3DSecure2Response`)
+
+The charge response includes a `threeDSecure2` block with these fields:
+
+| Field | Meaning |
+|---|---|
+| `setupId` | Authentication session id (Malga-managed 3DS2 only). |
+| `dataOnly` | `true` if the transaction was data-only (no challenge). |
+| `requiresLiabilityShift` | `true` when liability shifted to the issuer. |
+| `redirectURL` | URL to send the customer through the challenge. |
+| `requestorURL` | Origin URL for the redirect. |
+| `browser`, `billingAddress`, `shippingAddress`, `cardHolder` | Echo of the request data. |
+| `authData` | Provider-specific authentication payload (eci, cavv, etc.). |
+
+The Charges API reference is the source of truth for the full schema: <https://docs.malga.io/api-reference/charges/realizar-nova-cobranca>.
 
 ## Listening for the outcome
 
@@ -51,7 +93,8 @@ The charge response includes `threeDSecure` info (`flow`: `frictionless` / `chal
 
 ## Pitfalls
 
-- A merchant **cannot** ship a card charge through 3DS2 if the chosen provider doesn't support it. Configure 3DS2-capable providers in the same branch.
-- 3DS2 increases conversion in the long term (fewer chargebacks) but adds friction. Measure approval rate before vs after for fair comparison.
-- Subscription recurring charges (`merchantInitiated`) typically skip 3DS — set Smart Flow conditional on `metadata.initiator = "merchant"` (or whatever metadata the merchant chooses) to bypass.
-- Liability shift is granted **only** on `challenge_success` or `frictionless` outcomes. Other outcomes still let the charge through if the merchant chooses, but without protection.
+- A merchant **cannot** ship a card charge through 3DS2 if the chosen provider does not support it. Configure 3DS2-capable providers in the same Smart Flow branch.
+- 3DS2 increases conversion in the long term (fewer chargebacks) but adds friction in the short term. Measure approval rate and chargeback rate before vs after for a fair comparison.
+- Subscription recurring charges are merchant-initiated transactions (MIT) and typically skip 3DS. Route them through a Smart Flow branch with 3DS2 disabled. The exact metadata key to flag MIT is a merchant convention; see the `smart-flows` skill for conditional patterns.
+- Liability shift is granted **only** on `frictionless` or `challenge_success` outcomes. Other outcomes still let the charge through if the merchant chooses, but without protection.
+- The `threeDSecure2` payload schema and challenge mechanics differ per provider. Always cross-check with the Charges API reference when wiring the integration.

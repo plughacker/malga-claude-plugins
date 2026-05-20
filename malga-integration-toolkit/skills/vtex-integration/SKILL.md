@@ -9,29 +9,35 @@ The VTEX connector lets a VTEX merchant accept payments through Malga without wr
 
 Reference: <https://docs.malga.io/sdks/plugins/vtex-connector>
 
-## Supported features (parity with native integration)
+## Supported features
+
+Per the official VTEX connector docs:
 
 | Feature | VTEX connector |
 |---|---|
 | Cartão, Pix, Boleto | Yes |
-| Nupay, Drip, Voucher | Yes |
-| Smart Flows | Yes |
-| Antifraud | Yes |
-| 3DS2 | Yes |
-| Tokenization | Yes (vault) |
-| Card base migration | Yes |
-| Webhooks | Yes |
-| Split | Yes |
-| Custom transaction field | Yes |
-| Sending customer without document | Limited (depends on flow) |
+| Tokenização de cartão | Yes |
+| PCI compliance | Yes |
+| Provedores de pagamento via Malga | Yes |
+| Antifraude | Yes |
+| Fluxo Inteligente (Smart Flow) | Yes (exceto envio de campo personalizado na cobrança) |
+| Estorno e captura pelo painel VTEX | Yes |
+| Acompanhamento via Dashboard Malga | Yes |
+| Exportação .csv, Analytics API, Painel de Dados | Yes |
+| Gestão do fluxo pelo Dashboard Malga | Yes |
 
 ## Setup flow
 
-1. **In Malga Dashboard:** create a merchant for the VTEX store, configure providers (gateways) and Smart Flows for the methods you'll accept.
-2. **In VTEX Admin → Payments → Settings → Affiliations:** add a new affiliation, pick the Malga gateway, paste `X-Client-Id` and `X-Api-Key` from Malga, and set the merchant ID.
-3. **Payment conditions:** create one per method (Credit, Pix, Boleto, ...), tying each to the Malga affiliation.
-4. **Test in VTEX sandbox / Malga sandbox** with a low-value real order or sandbox provider.
-5. **Promote to production** once tested. The connector reuses the affiliation key configured.
+The connector is activated by Malga support, not self-service. Steps:
+
+1. **Request credentials from Malga**. Email **suporte@malga.io** asking for the VTEX connector activation. The Malga team generates and sends back a pair of credentials: **Token de aplicação** and **Chave de aplicação** (these are different from the regular `X-Client-Id` and `X-Api-Key` — they are VTEX-Provider-Protocol specific).
+2. **In VTEX Admin → Pagamentos → Provedores**, activate the Malga connector and paste the two credentials.
+3. **Configure payment conditions** in VTEX (one per accepted method: Credit, Pix, Boleto) and tie each to the Malga affiliation.
+4. **In the Malga Dashboard**, configure providers (gateways) and the Smart Flow for the merchant. Changes take effect immediately for new VTEX orders.
+5. **Test end-to-end** in VTEX's sandbox with a low-value order, validating Smart Flow + antifraud + 3DS2 behave as expected.
+6. **Go-live** once the smoke test passes.
+
+The integration is built on VTEX's Payment Provider Protocol and is PCI-compliant. Reference: <https://docs.malga.io/sdks/plugins/vtex-connector>.
 
 ## How orchestration works in VTEX
 

@@ -26,20 +26,25 @@ Create a session via `POST /v1/sessions` — the response includes a hosted paym
 ```bash
 POST /v1/sessions
 {
-  "merchantId": "<MERCHANT_ID>",
-  "amount": 19900,
-  "currency": "BRL",
-  "orderId": "ord-link-001",
-  "items": [
-    { "name": "Consulta", "quantity": 1, "unitPrice": 19900 }
+  "merchantId":          "<MERCHANT_ID>",
+  "name":                "Consulta médica",
+  "amount":              19900,
+  "currency":            "BRL",
+  "dueDate":             "2026-06-01T09:28:45.000Z",
+  "paymentMethods": [
+    { "paymentType": "credit", "installments": 1 },
+    { "paymentType": "pix",    "expiresIn": 3600 },
+    { "paymentType": "boleto", "expiresDate": "2026-06-05" }
   ],
-  "paymentMethods": ["credit", "pix", "boleto"],
-  "expiresIn": 3600,
-  "customer": { /* optional pre-fill */ }
+  "items": [
+    { "name": "Consulta", "description": "...", "unitPrice": 19900, "quantity": 1, "tangible": false }
+  ],
+  "description":         "Consulta agendada",
+  "statementDescriptor": "MINHACLINICA"
 }
 ```
 
-Use the returned URL directly. Session lifecycle methods (`cancel`, `update status`, `history`) still apply.
+Each entry in `paymentMethods` is an object (`{ paymentType, ... }`), not a string. The response includes the session id, a scoped `publicKey` for paying it, and the hosted-link URL where the customer can complete the payment. Session lifecycle methods (`cancel`, `update status`, `history`) still apply.
 
 ## Customizing the hosted page
 

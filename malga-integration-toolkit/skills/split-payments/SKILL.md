@@ -5,6 +5,10 @@ description: Use this skill when implementing Split de Pagamentos with Malga —
 
 # Malga Split (marketplace and facilitator)
 
+> Related dedicated skills: **`vendors`** for the regulatory facilitator-identification flow (Bacen 3978), **`payouts`** for the balance / batches / orders surface that consumes split data. This skill focuses on the split rules themselves.
+
+
+
 Split lets a single customer charge automatically distribute funds to multiple receivers — used by marketplaces (the customer pays one charge, three sellers receive their share) and facilitators (an aggregator processing payments on behalf of sub-merchants).
 
 Reference: <https://docs.malga.io/documentations/split-payments> (general) and <https://docs.malga.io/api-reference/sellers> (API).
@@ -51,23 +55,24 @@ Use the `/v1/vendors` endpoints if the merchant is a payment facilitator. Vendor
 
 ## Splitting a charge
 
-Add a `splits` (or `paymentFlow.split`) array to the charge payload:
+Add a `splitRules` array to the charge payload (note the field name: `splitRules`, not `splits`):
 
 ```json
 POST /v1/charges
 {
-  "merchantId": "...",
-  "amount": 10000,
-  "paymentMethod": { ... },
-  "splits": [
-    { "sellerId": "<SELLER_A>", "amount": 7000 },
-    { "sellerId": "<SELLER_B>", "amount": 2500 },
-    { "sellerId": "<MARKETPLACE>", "amount": 500 }
+  "merchantId":    "...",
+  "amount":        10000,
+  "paymentMethod": { "paymentType": "credit", "installments": 1 },
+  "paymentSource": { "sourceType": "card", "cardId": "<CARD_ID>" },
+  "splitRules": [
+    { "sellerId": "<SELLER_A>",     "amount": 7000 },
+    { "sellerId": "<SELLER_B>",     "amount": 2500 },
+    { "sellerId": "<MARKETPLACE>",  "amount":  500 }
   ]
 }
 ```
 
-Amounts must sum to the charge `amount` (or use percentage-based, depending on the provider's capability). The marketplace's own cut is just another split line.
+Amounts must sum to the charge `amount` (or use percentage-based, depending on the provider's capability). The marketplace's own cut is just another `splitRules` line.
 
 ## Payouts
 

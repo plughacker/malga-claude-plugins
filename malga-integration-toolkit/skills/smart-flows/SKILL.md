@@ -72,12 +72,12 @@ otherwise          →  branch "provider-B"  (40%)
 
 ## Inspecting flows programmatically
 
-Smart Flows are managed in the Dashboard. The API is read-only:
+Smart Flows are **managed exclusively in the Dashboard**. The REST API is **read-only**:
 
 - `GET /v1/flows` — list flows (paginated).
 - `GET /v1/flows/{id}` — details of one flow including branches and rules.
 
-Use these to verify which flow a merchant has active and to confirm changes after editing in the Dashboard.
+There are no `POST`, `PATCH`, or `DELETE` endpoints for flows. To change a flow, edit it in the Dashboard; the changes apply immediately to new charges. Use the GET endpoints to verify which flow a merchant has active and to confirm changes after editing in the Dashboard.
 
 ## Common pitfalls
 
