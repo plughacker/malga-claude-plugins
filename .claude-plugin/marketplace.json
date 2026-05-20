@@ -1,0 +1,23 @@
+{
+  "name": "malga",
+  "owner": {
+    "name": "Malga Developer Experience",
+    "url": "https://github.com/plughacker"
+  },
+  "metadata": {
+    "description": "Official Malga plugins marketplace for Claude Code and Claude Cowork.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "malga-integration-toolkit",
+      "source": "./malga-integration-toolkit",
+      "description": "Malga full-product integration toolkit. 14 skills covering Charges/Sessions, SDK Node, Checkout SDK, Payment Link, VTEX, Tokenization, Smart Flows, 3DS2, Antifraud, Split, Recurrence, Webhooks, Analytics.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Malga Developer Experience"
+      },
+      "keywords": ["malga", "payments", "brazil", "orchestration", "pix"]
+    }
+  ]
+}

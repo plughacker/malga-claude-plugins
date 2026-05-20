@@ -1,0 +1,28 @@
+{
+  "name": "malga-integration-toolkit",
+  "version": "0.1.0",
+  "description": "Malga full-product integration toolkit. Covers online checkout (Charges API, Sessions, SDKs), payment links, VTEX, tokenization (PCI Hosted Fields), smart flows (orchestration), 3DS2, antifraud, split payments, recurrence/subscriptions, webhooks, and analytics. Hybrid architecture: 14 skills provide stable integration intelligence; .mcp.json scaffolds live API access for a future Malga MCP server.",
+  "author": {
+    "name": "Malga Developer Experience"
+  },
+  "homepage": "https://docs.malga.io",
+  "repository": "https://github.com/plughacker",
+  "license": "MIT",
+  "keywords": [
+    "malga",
+    "payments",
+    "payment-orchestration",
+    "brazil",
+    "pix",
+    "boleto",
+    "credit-card",
+    "checkout",
+    "3ds2",
+    "antifraud",
+    "split-payments",
+    "subscriptions",
+    "tokenization",
+    "vtex",
+    "webhooks"
+  ]
+}

@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Plugin packaging artifacts
+*.plugin
+/tmp/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
