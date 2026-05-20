@@ -30,11 +30,9 @@ Fourteen skills, one per product area:
 | `webhooks` | Event catalog, HMAC signature verification, retry/idempotency |
 | `analytics-reporting` | Analytics API, Reports CSV exports, Dashboard analytics |
 
-### Architecture: hybrid (skills + future MCP)
+### Architecture
 
-The skills carry the **stable integration intelligence** — payload shapes, decision trees, common pitfalls — content that changes slowly and is expensive to look up via docs every time.
-
-A future Malga-hosted MCP server will provide **live API data** (current charge status, real Smart Flow config, customer lookups). The `mcp-template.json` file in this plugin lists the planned tool surface. When Malga publishes an MCP server, rename it to `.mcp.json` and fill in the `mcpServers` block.
+The skills carry the **stable integration intelligence** — payload shapes, decision trees, common pitfalls — content that changes slowly and is expensive to look up via docs every time. When Malga publishes a hosted MCP server in the future, it can be added to this plugin as a `.mcp.json` for live API access.
 
 ### Installation
 
@@ -89,11 +87,9 @@ Quatorze skills, uma por área de produto:
 | `webhooks` | Catálogo de eventos, verificação HMAC, retry/idempotência |
 | `analytics-reporting` | Analytics API, exports CSV via Reports API, analytics no Dashboard |
 
-### Arquitetura: híbrida (skills + MCP futuro)
+### Arquitetura
 
-As skills carregam a **inteligência estável de integração** — formatos de payload, árvores de decisão, armadilhas comuns — conteúdo que muda pouco e é caro de buscar via docs toda hora.
-
-Um futuro servidor MCP da Malga fornecerá **dados ao vivo da API** (status atual de cobrança, config real do Smart Flow, lookups de customer). O arquivo `mcp-template.json` deste plugin lista a superfície de tools planejada. Quando a Malga publicar um MCP, renomeie para `.mcp.json` e preencha o bloco `mcpServers`.
+As skills carregam a **inteligência estável de integração** — formatos de payload, árvores de decisão, armadilhas comuns — conteúdo que muda pouco e é caro de buscar via docs toda hora. Quando a Malga publicar um servidor MCP hospedado no futuro, ele pode ser adicionado a este plugin como `.mcp.json` para acesso ao vivo à API.
 
 ### Instalação
 

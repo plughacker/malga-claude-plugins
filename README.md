@@ -68,7 +68,7 @@ Edits to the skill files reflect in the next new Claude conversation — no rein
 
 ## License
 
-[MIT](./LICENSE) — © 2026 Malga (Plug Pagamentos S.A.)
+[MIT](./LICENSE) — © 2026 Malga
 
 ---
 
