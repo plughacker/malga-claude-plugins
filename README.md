@@ -1,7 +1,8 @@
+English · [Português](./README.pt-BR.md)
+
 # Malga plugins for Claude
 
 > Official Malga plugins marketplace for Claude Code and Claude Cowork.
-> Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork.
 
 This repository hosts a Claude plugins marketplace maintained by the Malga Developer Experience team.
 
