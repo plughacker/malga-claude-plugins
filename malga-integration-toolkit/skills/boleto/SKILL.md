@@ -1,6 +1,6 @@
 ---
 name: boleto
-description: Use this skill when implementing Boleto charges on Malga — the Brazilian bank slip with interest, fine, and items support. Triggers on questions about "boleto Malga", "barcodeData", "barcodeImageUrl", "expiresDate boleto Malga", "instructions boleto Malga", "interest fine boleto Malga", "estornar boleto Malga", "boleto não pago Malga", "items boleto Malga", "Banco Central boleto". Covers the boleto lifecycle, the no-refund / no-pre-auth constraint, interest/fine calculation, sandbox testing, and the amount-drift on paid boletos.
+description: 'Deep coverage of Malga Boleto charges. Triggers: "boleto Malga", "barcodeData", "expiresDate boleto", "instructions boleto", "interest fine boleto", "boleto não estorna Malga".'
 ---
 
 # Malga Boleto (deep-dive)

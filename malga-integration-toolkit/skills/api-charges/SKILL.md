@@ -1,6 +1,6 @@
 ---
 name: api-charges
-description: Use this skill when implementing or troubleshooting direct REST integrations against Malga's Charges and Sessions APIs. Triggers on questions about "criar cobrança Malga", "POST /charges", "Malga charge API", "capture pre-authorized", "estorno", "refund", "Malga Sessions API", "criar sessão", "pagar sessão", "cancelar sessão", "session history", idempotência em cobrança Malga, status de cobrança Malga, sandbox charge status. Covers payload structure for credit card, Pix and Boleto charges, the charge status enum, the Charges versus Sessions decision, and common errors.
+description: 'Direct REST against Malga Charges and Sessions APIs. Triggers: "criar cobrança Malga", "POST /charges", "capturar pre-auth", "estornar", "idempotência Malga", "status charge Malga". Payload structure, status enum, sandbox forcing.'
 ---
 
 # Malga Charges and Sessions APIs

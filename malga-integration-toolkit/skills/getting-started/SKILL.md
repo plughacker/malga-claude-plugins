@@ -1,6 +1,6 @@
 ---
 name: getting-started
-description: Use this skill to guide developers, support engineers, or sales/solutions engineers through the initial Malga integration journey. Triggers on questions about getting started with Malga, creating an account, obtaining API credentials (X-Client-Id / X-Api-Key), understanding sandbox versus production environments, activating an account for production, and choosing the right integration method (API Charges, API Sessions, SDK Node, Checkout SDK, Checkout Full, Link de Pagamento, or VTEX plugin). Also covers "qual o melhor método para integrar com a Malga", "como começo", "como obter chaves", "como ativar minha conta Malga", "Malga onboarding", and "Malga sandbox vs produção".
+description: 'Initial Malga integration journey. Triggers: "começar Malga", "X-Client-Id", "X-Api-Key", "sandbox vs produção Malga", "ativar conta Malga", "qual método integrar Malga", "Malga onboarding".'
 ---
 
 # Getting started with Malga

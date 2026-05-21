@@ -1,6 +1,6 @@
 ---
 name: providers
-description: Use this skill when configuring or choosing payment gateways (providers) on Malga. Triggers on questions about "provedor de pagamento Malga", "configurar Adyen na Malga", "Cielo Malga", "Stripe Malga", "PagSeguro Malga", "Getnet Malga", "Pagar.me Malga", "Banrisul Malga", "qual provedor suporta X Malga", "Malga gateway", "PATCH /v1/providers". Covers the 30+ providers integrated by Malga, the per-provider feature matrix, configuration via Dashboard or REST, and the decision framework for picking providers.
+description: 'Configuring or choosing Malga payment gateways (Adyen, Cielo, Stripe, etc.). Triggers: "provedor Malga", "Adyen Malga", "Cielo Malga", "Stripe Malga", "qual provedor suporta X Malga", "configurar gateway Malga". Has per-provider references.'
 ---
 
 # Malga Providers (payment gateways)

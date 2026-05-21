@@ -11,25 +11,35 @@ Malga is a Brazilian payment orchestrator and provider — one integration, many
 
 ### What's inside
 
-Fifteen skills, one per product area:
+**28 skills** · **30 per-provider references** · **3 slash commands**
 
-| Skill | Covers |
+#### Skills (grouped by area)
+
+| Area | Skills |
 |---|---|
-| `getting-started` | Account setup, credentials, sandbox vs production, choosing an integration method |
-| `api-charges` | Direct REST: Charges and Sessions APIs, idempotency, status lifecycle |
-| `payment-methods` | Each `paymentType` (credit, pix, boleto, nupay, drip, voucher, picpay, apple_pay, click_to_pay): when to use, refund semantics, fields |
-| `sdk-node` | Official Node SDK: client setup, idempotency, pitfalls, where to find current method shapes |
-| `checkout-sdk` | Drop-in `<malga-checkout>` web component and headless Checkout Full SDK |
-| `payment-link` | Hosted no-code payment link via Dashboard or Sessions API |
-| `vtex-integration` | VTEX connector: install, configure, supported features |
-| `smart-flows` | Payment orchestration: operators, properties, metadata, load balancing, retries |
-| `tokenization` | Hosted Fields, PCI DSS Level I, Client Tokens, Cards API, network tokens, zero-dollar |
-| `three-ds-two` | 3DS2 in Smart Flows, frictionless vs challenge, liability shift |
-| `antifraud` | Sync/async/hybrid lifecycles, automation options, fingerprints, Smart Flow integration |
-| `split-payments` | Sellers, Vendors, marketplace splits, payouts |
-| `recurrence` | Subscriptions API, items, cycles, dunning, pause/cancel/reactivate, MIT |
-| `webhooks` | Ed25519 signature verification, event catalog (transaction.*, subscription.*, seller.*), retry schedule |
-| `analytics-reporting` | Analytics API, Reports CSV exports, Dashboard analytics |
+| Onboarding | `getting-started` |
+| Backend REST + SDK | `api-charges`, `sdk-node`, `sessions`, `webhooks`, `customers-and-cards`, `merchants` |
+| Payment methods | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
+| Frontend SDKs | `checkout-sdk`, `tokenization` |
+| Hosted UX | `payment-link` |
+| Connector | `vtex-integration` |
+| Orchestration | `smart-flows`, `three-ds-two`, `antifraud` |
+| Marketplace / facilitator | `split-payments`, `vendors`, `payouts` |
+| Recurrence | `recurrence` |
+| Analytics | `analytics-reporting` |
+| Reference and ops | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
+
+#### Per-provider references
+
+30 reference summaries under `skills/providers/references/` covering the function × method matrix for each integrated provider: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+
+#### Slash commands
+
+| Command | Purpose |
+|---|---|
+| `/malga-setup [lang] [method]` | Scaffold a starter Malga integration in the chosen language and method. |
+| `/malga-review [path]` | Static review for Malga-specific issues (credentials, schema mismatch, signature algorithm, idempotency, status enum, etc.). |
+| `/malga-decode [json\|file\|chargeId]` | Explain a Malga charge response, webhook event, or error payload in plain language. |
 
 ### Architecture
 
@@ -69,24 +79,35 @@ A Malga é um orquestrador e provedor de pagamentos brasileiro — uma integraç
 
 ### O que tem dentro
 
-Quatorze skills, uma por área de produto:
+**28 skills** · **30 references por provedor** · **3 slash commands**
 
-| Skill | Cobre |
+#### Skills (agrupadas por área)
+
+| Área | Skills |
 |---|---|
-| `getting-started` | Criação de conta, credenciais, sandbox vs produção, escolha do método de integração |
-| `api-charges` | REST direto: APIs de Charges e Sessions, idempotência, ciclo de vida do status |
-| `sdk-node` | SDK `@malga/node`, client tipado, tratamento de erros, verificação de webhook |
-| `checkout-sdk` | Checkout SDK (drop-in) e Checkout Full SDK (headless) |
-| `payment-link` | Link de pagamento hospedado (no-code) via Dashboard ou Sessions API |
-| `vtex-integration` | Conector VTEX — instalação, configuração, recursos suportados |
-| `smart-flows` | Orquestração de pagamentos: operadores, propriedades, metadata, distribuição de carga, retries |
-| `tokenization` | Hosted Fields, PCI DSS Level I, Client Tokens, API de Cards, network tokens |
-| `three-ds-two` | 3DS2 no Smart Flow, fluxo frictionless vs challenge, liability shift |
-| `antifraud` | Provedores antifraude, decisões por score, branches no Smart Flow |
-| `split-payments` | Sellers, Vendors, splits para marketplace, payouts |
-| `recurrence` | API de Subscriptions, cycles, dunning, pause/cancel/reactivate |
-| `webhooks` | Catálogo de eventos, verificação HMAC, retry/idempotência |
-| `analytics-reporting` | Analytics API, exports CSV via Reports API, analytics no Dashboard |
+| Onboarding | `getting-started` |
+| Backend REST + SDK | `api-charges`, `sdk-node`, `sessions`, `webhooks`, `customers-and-cards`, `merchants` |
+| Métodos de pagamento | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
+| SDKs frontend | `checkout-sdk`, `tokenization` |
+| UX hospedada | `payment-link` |
+| Conector | `vtex-integration` |
+| Orquestração | `smart-flows`, `three-ds-two`, `antifraud` |
+| Marketplace / facilitador | `split-payments`, `vendors`, `payouts` |
+| Recorrência | `recurrence` |
+| Analytics | `analytics-reporting` |
+| Referência e operações | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
+
+#### References por provedor
+
+30 resumos por provedor em `skills/providers/references/` com a matriz funções × métodos para cada provedor integrado: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+
+#### Slash commands
+
+| Comando | Para que serve |
+|---|---|
+| `/malga-setup [lang] [method]` | Escafolda um starter de integração Malga na linguagem e método escolhidos. |
+| `/malga-review [path]` | Revisão estática para problemas específicos do Malga (credenciais, mismatch de schema, assinatura, idempotência, status enum, etc.). |
+| `/malga-decode [json\|arquivo\|chargeId]` | Explica em linguagem natural um payload de charge, evento de webhook ou erro. |
 
 ### Arquitetura
 

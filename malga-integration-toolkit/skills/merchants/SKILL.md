@@ -1,6 +1,6 @@
 ---
 name: merchants
-description: Use this skill when implementing, configuring, or managing Malga merchants (subcontas / subaccounts). Triggers on questions about "merchant Malga", "subconta Malga", "criar subconta", "merchant ID Malga", "MCC Malga", "configurar provedores do merchant", "PATCH /v1/merchants", "multiple merchants Malga", "qual merchantId usar", "store account Malga", "loja vs subconta". Covers the Merchant entity, when to use one vs. multiple, the REST endpoints, and the Dashboard "Subcontas" area.
+description: 'Managing Malga merchants (subcontas/subaccounts). Triggers: "merchant Malga", "subconta Malga", "criar subconta", "merchant ID", "PATCH /v1/merchants", "multi-merchant", "MCC Malga".'
 ---
 
 # Malga Merchants (Subcontas)

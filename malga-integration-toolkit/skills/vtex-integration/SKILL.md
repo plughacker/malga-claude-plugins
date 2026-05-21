@@ -1,6 +1,6 @@
 ---
 name: vtex-integration
-description: Use this skill when integrating Malga as a payment provider on a VTEX store using the Malga VTEX connector (plugin). Triggers on questions about "Malga VTEX", "VTEX connector Malga", "instalar plugin VTEX Malga", "configurar VTEX com Malga", "Malga gateway VTEX", "VTEX affiliation Malga", "Malga + VTEX Pix/Cartão/Boleto", "VTEX Smart Flow Malga". Covers installation, affiliation configuration, supported features, antifraud and smart flow interaction in VTEX, and limitations versus a direct API integration.
+description: 'Integrating Malga on a VTEX store using the Malga connector. Triggers: "Malga VTEX", "conector VTEX Malga", "configurar VTEX Malga", "Token de aplicação VTEX", "Pagamentos Provedores VTEX".'
 ---
 
 # Malga VTEX connector

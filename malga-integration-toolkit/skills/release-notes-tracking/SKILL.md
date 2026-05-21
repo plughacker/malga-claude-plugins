@@ -1,6 +1,6 @@
 ---
 name: release-notes-tracking
-description: Use this skill when tracking Malga product changes, API versioning, or evaluating whether a release affects an existing integration. Triggers on questions about "release notes Malga", "novidades Malga", "saiu novidade Malga", "what changed Malga", "API versioning Malga", "Malga changelog", "estou afetado pela mudança Malga", "deprecation Malga", "release notes by year Malga", "Malga product updates". Covers how Malga publishes release notes, how to triage them, and the SDK/API version conventions to watch.
+description: 'Tracking Malga product changes and evaluating release impact. Triggers: "release notes Malga", "novidades Malga", "novo release", "API versioning Malga", "deprecation Malga", "webhook v1.1 Malga".'
 ---
 
 # Tracking Malga release notes and API versioning

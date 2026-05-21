@@ -1,6 +1,6 @@
 ---
 name: payment-link
-description: Use this skill when the user wants to accept payments without building a checkout UI, using Malga's Link de Pagamento (no-code). Triggers on questions about "Malga Link de Pagamento", "Malga payment link", "como criar link de pagamento Malga", "cobrar sem site", "link de pagamento personalizado", customizar link Malga (logo, cores), settings de link de pagamento, share a Malga link via WhatsApp/email, expiração de link, "Malga session as payment link". Covers Dashboard creation, Sessions-based programmatic creation, customization via the Settings API, and typical sales/CX use cases.
+description: 'Accepting payments via Malga no-code Link de Pagamento. Triggers: "Malga Link de Pagamento", "cobrar sem site", "link de pagamento Malga", "session payment link", "cobrar via WhatsApp Malga".'
 ---
 
 # Malga Link de Pagamento (no-code)

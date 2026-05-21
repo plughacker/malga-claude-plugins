@@ -1,6 +1,6 @@
 ---
 name: analytics-reporting
-description: Use this skill when querying Malga payment data for analytics, dashboards, or finance reconciliation. Triggers on questions about "Malga Analytics API", "Malga analytics", "exportar transações Malga", "Malga Reports API", "CSV export Malga", "taxa de aprovação Malga", "approval rate Malga", "Malga Dashboard analytics", "métricas de pagamento Malga", "reconciliação financeira Malga", "Malga settlement report". Covers the Analytics API for aggregated metrics, the Reports API for raw CSV exports, the Dashboard analytics module, and how the three fit together.
+description: 'Querying Malga payment data for analytics, dashboards, finance reconciliation. Triggers: "Malga Analytics API", "exportar transações Malga", "Reports CSV Malga", "taxa de aprovação Malga", "reconciliação financeira Malga".'
 ---
 
 # Malga analytics and reporting

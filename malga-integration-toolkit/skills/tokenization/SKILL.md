@@ -1,6 +1,6 @@
 ---
 name: tokenization
-description: Use this skill when implementing card tokenization with Malga to stay PCI-compliant and to enable card-on-file or one-click flows. Triggers on questions about "tokenização cartão Malga", "Malga Tokenization SDK", "@malga/tokenization", "Hosted Fields Malga", "PCI DSS Level I Malga", "client token Malga", "chave pública Malga", "Malga card vault", "migração de base de cartões Malga", "network tokens Malga", "tokenização de bandeira Malga", "zero dollar Malga", "tokenize() Malga", "validity event Malga". Covers the Tokenization SDK v2 (`@malga/tokenization`), the Client Token (`POST /v1/auth`), the Cards API, network tokens, and migration patterns.
+description: 'Implementing Malga card tokenization (PCI-safe Hosted Fields). Triggers: "tokenização Malga", "@malga/tokenization", "Hosted Fields Malga", "PCI DSS Level I", "Client Token", "network tokens Malga", "zero dollar".'
 ---
 
 # Malga tokenization

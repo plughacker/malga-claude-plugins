@@ -6,11 +6,43 @@ English · [Português](./README.pt-BR.md)
 
 This repository hosts a Claude plugins marketplace maintained by the Malga Developer Experience team.
 
-## What's inside
+## Plugin
 
 | Plugin | Version | Description |
 |---|---|---|
-| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.7.0 | Full-product integration toolkit: 15 skills covering Charges/Sessions, Payment Methods (credit, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), SDKs (Node, Checkout, Checkout Full), Payment Link, VTEX, Tokenization (Hosted Fields, PCI, network tokens), Smart Flows (orchestration), 3DS2, Antifraud (sync/async/hybrid), Split, Recurrence, Webhooks (Ed25519 v1.1), and Analytics. |
+| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.0 | Full Malga product coverage for developers, support, and sales/solutions teams. |
+
+## What's inside
+
+**28 skills** · **30 per-provider references** · **3 slash commands**
+
+### Skills (by area)
+
+| Area | Skills |
+|---|---|
+| Onboarding | `getting-started` |
+| Backend REST + SDK | `api-charges`, `sdk-node`, `sessions`, `webhooks`, `customers-and-cards`, `merchants` |
+| Payment methods | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
+| Frontend SDKs | `checkout-sdk`, `tokenization` |
+| Hosted UX | `payment-link` |
+| Connector | `vtex-integration` |
+| Orchestration | `smart-flows`, `three-ds-two`, `antifraud` |
+| Marketplace / facilitator | `split-payments`, `vendors`, `payouts` |
+| Recurrence | `recurrence` |
+| Analytics | `analytics-reporting` |
+| Reference and ops | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
+
+### Provider references
+
+30 per-provider summaries inside `providers/references/` covering the feature × method matrix for: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+
+### Slash commands
+
+| Command | Purpose |
+|---|---|
+| `/malga-setup [lang] [method]` | Scaffold a starter Malga integration (Node, Python, PHP, etc. × credit, pix, boleto, etc.) with env vars, idempotency, error handling, and an optional webhook receiver stub. |
+| `/malga-review [path]` | Static review for Malga-specific issues: hardcoded credentials, REST/SDK schema mismatch, missing idempotency, wrong webhook signature (HMAC vs Ed25519), refund URL drift, Pix field names, status enum mistakes. |
+| `/malga-decode [json\|file\|chargeId]` | Explain a Malga charge response, webhook event, or error payload in plain language: timeline, what happened, what to do next. |
 
 ## Install
 

@@ -2,6 +2,24 @@
 
 All notable changes to `malga-integration-toolkit` are documented here. Format inspired by [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.8.0] — 2026-05-20
+
+### Added
+
+- **3 slash commands** in `commands/`:
+  - `/malga-setup [language] [method]` — scaffolds a starter Malga integration in the chosen language (Node, Python, PHP, Ruby, Java, Go, C#, React) for the chosen method (credit, pix, boleto, nupay, etc.). Includes env vars, idempotency, error handling, and an optional webhook receiver stub.
+  - `/malga-review [path]` — static review of code for Malga-specific issues: hardcoded credentials, REST/SDK schema mismatch, missing idempotency, wrong webhook signature algorithm (HMAC vs Ed25519), Pix field names, refund URL drift (`/refund` vs `/void`), Boleto refund attempts, status enum mistakes.
+  - `/malga-decode [json-or-file-or-chargeId]` — explains a Malga charge response, webhook event, or error payload in plain language: one-sentence summary, key facts, transactionRequests timeline, what happened, what to do next.
+
+### Changed
+
+- **Shortened every SKILL.md description** in the frontmatter. Goal: reduce always-loaded token footprint of the plugin. Each description is now 1-2 sentences plus 5-7 specific trigger phrases (PT and EN). Token estimate dropped from ~7,000 (v0.7.0) to ~960 (v0.8.0) — about **86% reduction**.
+- Wrapped all descriptions in single quotes so YAML parsers handle the inner `Triggers: "..."` correctly.
+
+### Why
+
+The Mercado Pago plugin (`mercadopago/mercadopago-claude-marketplace`) demonstrated a leaner pattern: aggressive description shortening + agent-based routing + MCP for live data. This release adopts the description-shortening half (Caminho B from the audit conversation). Future versions may adopt the agent-router pattern and a Malga MCP server when one becomes available.
+
 ## [0.7.0] — 2026-05-20
 
 ### Added

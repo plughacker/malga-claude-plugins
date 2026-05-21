@@ -1,6 +1,6 @@
 ---
 name: customers-and-cards
-description: Use this skill when implementing or troubleshooting Customer and Card management on Malga, beyond the in-browser tokenization flow covered by the `tokenization` skill. Triggers on questions about "criar customer Malga", "cliente cadastrado Malga", "vincular cartão ao customer", "card on file Malga", "salvar cartão", "linkCard Malga", "customer document CPF", "customer address Malga", "tokenizar cartão server-side", "Token CVV Malga", "Card API Malga", "customer.cards", "POST /v1/customers", "POST /v1/cards". Covers the Customer entity (document, address, contact), the Card entity (lifecycle, fingerprint, expiration), how to link cards to customers, and how tokens differ from cards.
+description: 'Managing Malga customers and vaulted cards beyond the tokenization SDK. Triggers: "criar customer Malga", "vincular cartão ao customer", "card on file Malga", "POST /v1/customers", "POST /v1/cards", "linkCard", "tokenization-cvv".'
 ---
 
 # Malga Customers and Cards

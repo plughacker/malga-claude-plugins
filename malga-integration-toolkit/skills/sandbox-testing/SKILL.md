@@ -1,6 +1,6 @@
 ---
 name: sandbox-testing
-description: Use this skill when testing a Malga integration in the sandbox environment. Triggers on questions about "sandbox Malga", "ambiente de teste Malga", "test card Malga", "cartão de teste Malga", "sandbox-api.malga.io", "force charge status sandbox", "POST /charges/{id} sandbox", "testar antifraude sandbox Malga", "testar webhook Malga", "Postman collection Malga", "como testar Pix Malga sandbox", "captura falha 991". Consolidates test cards rules, manual status transitions, antifraud testing, sandbox endpoints, and webhook testing tools.
+description: 'Testing a Malga integration in sandbox. Triggers: "sandbox Malga", "test card Malga", "sandbox-api.malga.io", "force charge status", "991 capture failure", "testar antifraude sandbox", "Postman Malga".'
 ---
 
 # Malga sandbox testing

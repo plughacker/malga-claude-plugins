@@ -1,6 +1,6 @@
 ---
 name: payouts
-description: Use this skill when reconciling settlements, inspecting payout batches, or building finance dashboards on top of Malga payouts. Triggers on questions about "saldo Malga", "payout balance Malga", "repasse Malga", "payment batch Malga", "ordem de pagamento Malga", "subadquirente Malga", "GET /v1/payouts/balance", "finalBalance Malga", "payment-batches Malga", "reconciliação financeira Malga". Covers the Payouts REST surface (balance, batches, orders), the difference between an order and a batch, status semantics, and reconciliation against charges.
+description: 'Malga payouts (balance, batches, orders) for finance reconciliation. REST-only (no SDK). Triggers: "saldo Malga", "payout Malga", "repasse Malga", "payment batch", "finalBalance", "reconciliação Malga".'
 ---
 
 # Malga Payouts

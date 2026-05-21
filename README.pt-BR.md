@@ -4,11 +4,43 @@
 
 Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork. Mantido pelo time de Developer Experience da Malga.
 
-## O que tem aqui
+## Plugin
 
 | Plugin | Versão | Descrição |
 |---|---|---|
-| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.7.0 | Kit completo de integração com a Malga. Tem 15 skills cobrindo as APIs de Charges e Sessions, Métodos de Pagamento (cartão, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), os SDKs (Node, Checkout, Checkout Full), o Link de Pagamento, o conector VTEX, Tokenização (Hosted Fields, PCI, network tokens), Fluxos Inteligentes (orquestração), 3DS2, Antifraude (síncrono/assíncrono/híbrido), Split, Recorrência, Webhooks (Ed25519 v1.1) e Analytics. |
+| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.0 | Cobertura completa do produto Malga para devs, suporte e times de sales/solutions. |
+
+## O que tem aqui
+
+**28 skills** · **30 references por provedor** · **3 slash commands**
+
+### Skills (por área)
+
+| Área | Skills |
+|---|---|
+| Onboarding | `getting-started` |
+| Backend REST + SDK | `api-charges`, `sdk-node`, `sessions`, `webhooks`, `customers-and-cards`, `merchants` |
+| Métodos de pagamento | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
+| SDKs frontend | `checkout-sdk`, `tokenization` |
+| UX hospedada | `payment-link` |
+| Conector | `vtex-integration` |
+| Orquestração | `smart-flows`, `three-ds-two`, `antifraud` |
+| Marketplace / facilitador | `split-payments`, `vendors`, `payouts` |
+| Recorrência | `recurrence` |
+| Analytics | `analytics-reporting` |
+| Referência e operações | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
+
+### References por provedor
+
+30 resumos por provedor em `providers/references/` com a matriz funções × métodos para: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+
+### Slash commands
+
+| Comando | Para que serve |
+|---|---|
+| `/malga-setup [lang] [method]` | Escafolda um starter de integração Malga (Node, Python, PHP, etc. × cartão, pix, boleto, etc.) com env vars, idempotência, tratamento de erros e receiver de webhook opcional. |
+| `/malga-review [path]` | Revisão estática procurando problemas específicos do Malga: credenciais hardcoded, schema REST/SDK errado, falta de idempotência, assinatura de webhook errada (HMAC vs Ed25519), URL de refund, nomes de campo do Pix, status enum incorreto. |
+| `/malga-decode [json\|arquivo\|chargeId]` | Explica em linguagem natural um payload de charge, evento de webhook ou erro do Malga: linha do tempo, o que aconteceu, próximos passos. |
 
 ## Como instalar
 
@@ -80,7 +112,8 @@ malga-claude-plugins/
 ├── malga-integration-toolkit/    # o plugin em si
 │   ├── .claude-plugin/
 │   │   └── plugin.json
-│   ├── skills/                   # 14 skills, uma pasta por área de produto
+│   ├── skills/                   # 28 skills (uma pasta por skill) + 30 references por provedor
+│   ├── commands/                 # 3 slash commands (/malga-setup, /malga-review, /malga-decode)
 │   └── README.md
 ├── README.md                     # versão em inglês
 ├── README.pt-BR.md               # esta versão

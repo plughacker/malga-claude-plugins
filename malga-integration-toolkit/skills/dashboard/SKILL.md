@@ -1,6 +1,6 @@
 ---
 name: dashboard
-description: Use this skill when the user is a non-developer (CX, finance, ops) navigating the Malga Dashboard. Triggers on questions about "Dashboard Malga", "como vejo no painel Malga", "Painel de Dados Malga", "Insights Malga", "Visão geral Malga", "Performance Malga", "exportar dados Dashboard Malga", "subcontas Dashboard", "renomear merchant Dashboard", "detalhe de cobrança Dashboard Malga", "usuários Dashboard Malga", "permissões Dashboard Malga", "como investigo uma transação Malga". Covers the main Dashboard areas (Insights, Performance, Charges, Merchants, Export, Users) and what each is good for.
+description: 'Non-developer users (CX, finance, ops) navigating the Malga Dashboard. Triggers: "Dashboard Malga", "Painel de Dados", "Insights Malga", "exportar Dashboard", "detalhe de cobrança Dashboard", "subcontas", "investigar transação Malga".'
 ---
 
 # Malga Dashboard (for non-developer users)

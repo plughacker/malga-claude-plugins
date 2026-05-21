@@ -1,6 +1,6 @@
 ---
 name: three-ds-two
-description: Use this skill when implementing 3DS2 (3-D Secure 2) authentication on credit card transactions through Malga. Triggers on questions about "3DS2 Malga", "3-D Secure Malga", "liability shift Malga", "challenge flow 3DS Malga", "frictionless 3DS Malga", "Malga authenticate card", "chargeback prevention Malga", "PSD2 Malga", "Mastercard Identity Check", "Visa Secure Malga". Covers how 3DS2 fits inside Smart Flows, the challenge versus frictionless flow, integration with the Checkout SDK, and when to enable it (default: high-ticket or LATAM-cross-border).
+description: 'Implementing 3DS2 authentication on Malga credit card transactions. Triggers: "3DS2 Malga", "3-D Secure Malga", "liability shift", "challenge flow 3DS", "threeDSecure2 block", "chargeback prevention Malga".'
 ---
 
 # Malga 3DS2

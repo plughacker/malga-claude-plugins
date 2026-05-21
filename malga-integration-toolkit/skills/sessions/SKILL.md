@@ -1,6 +1,6 @@
 ---
 name: sessions
-description: Use this skill when implementing Malga Sessions — order-based payments paid via API, hosted Payment Link, or the Malga Checkout SDK. Triggers on questions about "criar sessão Malga", "Malga Session API", "POST /v1/sessions", "pagar sessão", "session publicKey scoped", "session dueDate", "isActive sessão", "session history Malga", "diferença charge vs session Malga", "session items list", "Malga session checkout integration". Covers session lifecycle, the scoped public key model, integration with Checkout SDK and Payment Link, and the session-vs-charge decision tree.
+description: 'Implementing Malga Sessions (order-based payments via API, Link, or Checkout SDK). Triggers: "Malga Session API", "POST /v1/sessions", "pagar sessão", "session publicKey scoped", "isActive sessão", "session history Malga".'
 ---
 
 # Malga Sessions

@@ -1,6 +1,6 @@
 ---
 name: type-tables
-description: Use this skill when looking up Malga reference data — decline codes, antifraud providers, supported currencies, document types per country, MCC codes, main banks, additional services, payment-methods-by-providers compatibility. Triggers on questions about "código de recusa Malga", "decline code Malga", "qual mensagem para card_declined", "tabela de bandeiras Malga", "MCC Malga", "tabela de bancos", "qual provedor suporta Pix Malga", "antifraude providers Malga", "moedas suportadas Malga", "tipo de documento por país Malga", "ABECS Malga". Covers the eight reference tables published by Malga and how to look up information against them.
+description: 'Looking up Malga reference tables (decline codes, banks, MCC, providers compat). Triggers: "código de recusa Malga", "decline code Malga", "tabela de bancos", "MCC Malga", "qual provedor suporta Pix", "ABECS Malga".'
 ---
 
 # Malga Type Tables (reference data)

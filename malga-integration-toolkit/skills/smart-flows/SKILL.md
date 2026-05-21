@@ -1,6 +1,6 @@
 ---
 name: smart-flows
-description: Use this skill when designing, configuring, or debugging Malga's Fluxos Inteligentes (Smart Flows) for payment orchestration. Triggers on questions about "Fluxos Inteligentes Malga", "Smart Flow Malga", "orquestração de pagamentos Malga", "fallback de provedor", "roteamento de transação", "load balancing pagamento", "regras condicionais Malga", "metadata paymentFlow", "Malga conditionals", "approval rate", "retry de provedor", "antifraude no Smart Flow". Covers operators, available charge properties, metadata extension, load balancing with math/random, branching semantics, and provider retry behavior.
+description: 'Designing Malga Fluxos Inteligentes (payment orchestration). Triggers: "Fluxos Inteligentes Malga", "Smart Flow Malga", "orquestração de pagamentos", "fallback de provedor", "metadata paymentFlow", "math/random load balancing".'
 ---
 
 # Malga Smart Flows (Fluxos Inteligentes)

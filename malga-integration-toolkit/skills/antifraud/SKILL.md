@@ -1,6 +1,6 @@
 ---
 name: antifraud
-description: Use this skill when configuring or troubleshooting antifraud on Malga charges. Triggers on questions about "antifraude Malga", "Malga antifraud providers", "Clearsale Malga", "Konduto Malga", "fraud analysis Malga", "approved reproved Malga", "Smart Flow antifraud branch", "device fingerprint Malga", "antifraude síncrono assíncrono Malga", "runBeforeCharge", "captureOnApprove", "refundOnReprove". Covers sync vs async vs hybrid antifraud lifecycles, configuration options, the status outcomes returned (pending / approved / reproved), and the interaction between antifraud and 3DS2.
+description: 'Configuring or troubleshooting antifraud on Malga charges. Triggers: "antifraude Malga", "ClearSale Malga", "Konduto Malga", "approved/reproved Malga", "runBeforeCharge", "captureOnApprove", "antifraude síncrono assíncrono".'
 ---
 
 # Malga antifraud

@@ -1,6 +1,6 @@
 ---
 name: split-payments
-description: Use this skill when implementing Split de Pagamentos with Malga — distributing a single charge across multiple receivers (marketplaces, facilitators). Triggers on questions about "split de pagamentos Malga", "Malga marketplace split", "Malga Sellers API", "Malga Vendors API", "criar recebedor Malga", "seller Malga", "vendor facilitador Malga", "payout Malga", "repasse Malga", "saldo de payout Malga", "regras de split", "split percentage versus fixed", "submerchant Malga". Covers the Sellers / Vendors / Payouts data model, split rules on a charge, document-upload for KYC, and the payout lifecycle.
+description: 'Implementing Malga Split (marketplace, facilitator). Triggers: "split de pagamentos Malga", "marketplace Malga", "Sellers Malga", "splitRules", "POST /v1/sellers", "processingFee liable Malga".'
 ---
 
 # Malga Split (marketplace and facilitator)

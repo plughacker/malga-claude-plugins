@@ -1,6 +1,6 @@
 ---
 name: sdk-node
-description: Use this skill when integrating Malga from a Node.js or TypeScript backend using the official `malga` npm package. Triggers on questions about "Malga Node SDK", "malga npm", "@malga/node", "import Malga from malga", "Malga TypeScript", "como criar charge com SDK Node Malga", "malga.charges.create", "malga.auth.createPublicKey", "malga.webhooks.verify", "Malga server-side integration JavaScript". Covers installation, client setup, idempotency, error structure, and the SDK's simplified payload schema (which differs from the REST API).
+description: 'Integrating Malga from Node.js using the official `malga` npm package. Triggers: "Malga Node SDK", "malga npm", "malga.charges.create", "malga.auth.createPublicKey", "malga.webhooks.verify", "MalgaErrorResponse". SDK schema differs from REST.'
 ---
 
 # Malga Node.js SDK

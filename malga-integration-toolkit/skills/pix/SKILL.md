@@ -1,6 +1,6 @@
 ---
 name: pix
-description: Use this skill when implementing Pix charges on Malga in depth — QR code generation, async refund flow, amount drift, partial refunds, sandbox testing. Triggers on questions about "Pix Malga", "cobrança Pix Malga", "qrCodeData", "qrCodeImageUrl", "expiresIn Pix", "estorno Pix Malga", "refund_pending Pix", "Pix valor diferente", "amount drift Pix", "sandbox Pix Malga", "transaction.refund_pending". Covers the Pix lifecycle, provider support for partial refunds, the async refund flow (refund_pending → voided), and the BR Central Bank settlement rails.
+description: 'Deep coverage of Malga Pix charges. Triggers: "Pix Malga", "qrCodeData", "qrCodeImageUrl", "expiresIn Pix", "estorno Pix Malga", "refund_pending Pix", "Pix valor diferente Malga".'
 ---
 
 # Malga Pix (deep-dive)

@@ -1,6 +1,6 @@
 ---
 name: webhooks
-description: Use this skill when configuring, securing, or debugging Malga webhooks (Webhooks v1.1). Triggers on questions about "webhook Malga", "Malga events", "transaction.authorized", "verificar assinatura webhook Malga", "ed25519 Malga", "X-Plug-Signature", "X-Plug-Date", "Malga webhook retry", "webhook receiver fila SQS Malga", "subscription event Malga", "seller event Malga". Covers webhook CRUD endpoints, the official event catalog (transaction.*, subscription.*, seller.*), Ed25519 signature verification, retry schedule (6 attempts), and idempotency via x-idempotency-key.
+description: 'Configuring or debugging Malga webhooks (v1.1). Triggers: "webhook Malga", "transaction.authorized", "X-Plug-Signature", "X-Plug-Date", "Ed25519 Malga", "verificar assinatura webhook", "retry webhook Malga".'
 ---
 
 # Malga webhooks (v1.1)

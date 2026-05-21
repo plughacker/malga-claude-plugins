@@ -1,6 +1,6 @@
 ---
 name: vendors
-description: Use this skill when implementing the Malga Vendors API for payment facilitators (marketplaces, franchises, delivery apps) who need to identify the end commercial beneficiary on each charge per Bacen Circular 3978/2020. Triggers on questions about "facilitador de pagamento Malga", "vendor Malga", "paymentFacilitatorId Malga", "Bacen 3978 Malga", "marketplace identificação beneficiário Malga", "POST /v1/vendors", "vendor.id charge Malga", "circular 3978". Covers the Vendor entity, the regulatory context, supported providers, and how to attach a vendor to a charge.
+description: 'Implementing Malga Vendors API for payment facilitators (Bacen Circular 3978/2020). Triggers: "facilitador Malga", "vendor Malga", "paymentFacilitatorId", "Bacen 3978", "marketplace identificação beneficiário".'
 ---
 
 # Malga Vendors (payment facilitators)

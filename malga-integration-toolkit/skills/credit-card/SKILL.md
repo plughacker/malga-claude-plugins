@@ -1,6 +1,6 @@
 ---
 name: credit-card
-description: Use this skill when implementing credit card charges on Malga in depth — pre-auth, capture, partial refunds, revert_void, foreign currencies. Triggers on questions about "cartão de crédito Malga", "credit card Malga", "pre-autorização Malga", "capturar cobrança Malga", "estorno parcial cartão Malga", "revert void Malga", "originalAmount vs amount Malga", "cobrança em USD Malga", "currency Malga charge", "transaction.charged_back". Covers the full credit-card lifecycle, the originalAmount/amount distinction in partial refunds, the revert_void flow, and multi-currency support.
+description: 'Deep coverage of Malga credit card charges. Triggers: "cartão Malga", "pré-autorização Malga", "capturar cobrança", "estorno parcial cartão", "revert_void Malga", "originalAmount vs amount", "cobrança em USD Malga".'
 ---
 
 # Malga Credit Card (deep-dive)

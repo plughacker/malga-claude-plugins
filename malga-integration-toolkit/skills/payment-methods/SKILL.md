@@ -1,6 +1,6 @@
 ---
 name: payment-methods
-description: Use this skill when the user is choosing or implementing specific payment methods supported by Malga. Triggers on questions about "métodos de pagamento Malga", "cartão de crédito Malga", "Pix Malga", "Boleto Malga", "NuPay Malga", "Drip Malga", "Voucher Malga", "PicPay Malga", "Apple Pay Malga", "Click to Pay Malga", "qual método de pagamento usar Malga", "diferença Pix Boleto Malga", "expiresIn Pix Malga", "dueDate boleto Malga". Covers each supported paymentType, the relevant fields per method, when each is appropriate, and reversal / cancellation semantics per method.
+description: 'Overview of Malga payment methods and how to choose. Triggers: "métodos pagamento Malga", "paymentType Malga", "qual método Malga", "NuPay Malga", "Drip Malga", "PicPay Malga", "voucher Malga". For deep coverage of credit/pix/boleto, see the dedicated skills.'
 ---
 
 # Malga payment methods

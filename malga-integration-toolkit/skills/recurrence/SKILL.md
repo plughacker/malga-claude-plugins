@@ -1,6 +1,6 @@
 ---
 name: recurrence
-description: Use this skill when implementing recurring payments or subscriptions with Malga. Triggers on questions about "recorrência Malga", "assinatura Malga", "Malga subscriptions API", "criar assinatura Malga", "cycles Malga", "pause subscription Malga", "Malga billing", "dunning Malga", "Malga update payment method subscription", "merchant-initiated transaction MIT", "subscription trial Malga". Covers the Subscriptions API, the cycle lifecycle, pause/resume/cancel/reactivate, customer-payment-method updates, retry/dunning, and how recurrence interacts with 3DS2.
+description: 'Implementing Malga subscriptions and recurring payments. Triggers: "recorrência Malga", "assinatura Malga", "Malga subscriptions", "criar plano Malga", "cycles Malga", "pausar assinatura", "MIT Malga".'
 ---
 
 # Malga Recorrência / Subscriptions

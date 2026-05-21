@@ -1,6 +1,6 @@
 ---
 name: checkout-sdk
-description: Use this skill when implementing or customizing Malga's frontend Checkout SDKs. Triggers on questions about "Malga Checkout SDK", "@malga-checkout/core", "<malga-checkout> web component", "Checkout Full SDK", "embed Malga checkout", "drop-in checkout Malga", "paymentSuccess Malga", "paymentFailed Malga", "transactionConfig Malga", "paymentMethods checkout Malga", "dialogConfig Malga", "tema Malga Checkout CSS variables". Covers the web component, its props (HTML attributes and JS properties), the per-method configuration objects, theme customization via CSS variables, and integration with Sessions.
+description: 'Malga frontend Checkout SDKs (drop-in `<malga-checkout>` and headless Full SDK). Triggers: "Malga Checkout SDK", "@malga-checkout/core", "paymentSuccess", "transactionConfig Malga", "dialogConfig", "paymentMethods checkout Malga".'
 ---
 
 # Malga Checkout SDK (frontend)
