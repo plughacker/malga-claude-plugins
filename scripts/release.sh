@@ -2,8 +2,9 @@
 # Cut a GitHub release using only the matching CHANGELOG section as notes.
 #
 # Usage:
-#   ./scripts/release.sh                # uses the version from plugin.json
-#   ./scripts/release.sh v0.8.0         # uses an explicit tag
+#   ./scripts/release.sh                                  # version from plugin.json, title = tag
+#   ./scripts/release.sh v0.8.0                           # explicit tag, title = tag
+#   ./scripts/release.sh v0.8.0 "v0.8.0 — short title"   # explicit tag + title
 #
 # Behaviour:
 #   1. Reads version from malga-integration-toolkit/.claude-plugin/plugin.json (or argv).
@@ -67,17 +68,11 @@ case "$ans" in
   *) echo "aborted"; rm -f "$NOTES_TMP"; exit 1 ;;
 esac
 
+# Title: optional argv[2], else just the tag.
+TITLE="${2:-$TAG}"
+
 gh release create "$TAG" "$PLUGIN_FILE" \
-  --title "$TAG — $(awk -v version="$VERSION" '
-    /^## \[/ {
-      if ($0 ~ "^## \\[" version "\\]") {
-        # Take everything after "— " on the same line, fallback to version
-        match($0, /— (.+)$/, m)
-        print (m[1] != "" ? m[1] : version)
-        exit
-      }
-    }
-  ' "$CHANGELOG")" \
+  --title "$TITLE" \
   --notes-file "$NOTES_TMP"
 
 rm -f "$NOTES_TMP"
