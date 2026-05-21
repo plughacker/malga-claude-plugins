@@ -2,54 +2,52 @@
   <picture>
     <img alt="Malga" src="https://raw.githubusercontent.com/plughacker/malga-node/main/docs/assets/malga.png" width="85">
   </picture>
-  <h1>Malga plugins for Claude</h1>
+  <h1>Plugins da Malga para Claude</h1>
 </div>
 
-English · [Português](./README.pt-BR.md)
+[English](./README.en.md) · Português
 
-> Official Malga plugins marketplace for Claude Code and Claude Cowork.
-
-This repository hosts a Claude plugins marketplace maintained by the Malga Developer Experience team.
+Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork. Mantido pelo time de Developer Experience da Malga.
 
 ## Plugin
 
-| Plugin | Version | Description |
+| Plugin | Versão | Descrição |
 |---|---|---|
-| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.0 | Full Malga product coverage for developers, support, and sales/solutions teams. |
+| [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.1 | Cobertura completa do produto Malga para devs, suporte e times de sales/solutions. |
 
-## What's inside
+## O que tem aqui
 
-**28 skills** · **30 per-provider references** · **3 slash commands**
+**28 skills** · **30 references por provedor** · **3 slash commands**
 
-### Skills (by area)
+### Skills (por área)
 
-| Area | Skills |
+| Área | Skills |
 |---|---|
 | Onboarding | `getting-started` |
 | Backend REST + SDK | `api-charges`, `sdk-node`, `sessions`, `webhooks`, `customers-and-cards`, `merchants` |
-| Payment methods | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
-| Frontend SDKs | `checkout-sdk`, `tokenization` |
-| Hosted UX | `payment-link` |
-| Connector | `vtex-integration` |
-| Orchestration | `smart-flows`, `three-ds-two`, `antifraud` |
-| Marketplace / facilitator | `split-payments`, `vendors`, `payouts` |
-| Recurrence | `recurrence` |
+| Métodos de pagamento | `payment-methods` (overview), `credit-card`, `pix`, `boleto` |
+| SDKs frontend | `checkout-sdk`, `tokenization` |
+| UX hospedada | `payment-link` |
+| Conector | `vtex-integration` |
+| Orquestração | `smart-flows`, `three-ds-two`, `antifraud` |
+| Marketplace / facilitador | `split-payments`, `vendors`, `payouts` |
+| Recorrência | `recurrence` |
 | Analytics | `analytics-reporting` |
-| Reference and ops | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
+| Referência e operações | `type-tables`, `dashboard`, `sandbox-testing`, `providers`, `release-notes-tracking` |
 
-### Provider references
+### References por provedor
 
-30 per-provider summaries inside `providers/references/` covering the feature × method matrix for: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
+30 resumos por provedor em `providers/references/` com a matriz funções × métodos para: Adyen, Banco do Brasil, Banrisul, Barte, Bolt, Braintree, Braspag, BS2, Cielo, Drip, Getnet, Getnet SEP, Klap, Malga, Mapinvest, Mercado Pago, NuPay, OwemPay, Pagar.me, Pagar.me v5, PagSeguro, PayPal, PicPay, Rede, SafraPay, Sandbox, Stripe, VR, Worldpay, Zoop.
 
 ### Slash commands
 
-| Command | Purpose |
+| Comando | Para que serve |
 |---|---|
-| `/malga-setup [lang] [method]` | Scaffold a starter Malga integration (Node, Python, PHP, etc. × credit, pix, boleto, etc.) with env vars, idempotency, error handling, and an optional webhook receiver stub. |
-| `/malga-review [path]` | Static review for Malga-specific issues: hardcoded credentials, REST/SDK schema mismatch, missing idempotency, wrong webhook signature (HMAC vs Ed25519), refund URL drift, Pix field names, status enum mistakes. |
-| `/malga-decode [json\|file\|chargeId]` | Explain a Malga charge response, webhook event, or error payload in plain language: timeline, what happened, what to do next. |
+| `/malga-setup [lang] [method]` | Escafolda um starter de integração Malga (Node, Python, PHP, etc. × cartão, pix, boleto, etc.) com env vars, idempotência, tratamento de erros e receiver de webhook opcional. |
+| `/malga-review [path]` | Revisão estática procurando problemas específicos do Malga: credenciais hardcoded, schema REST/SDK errado, falta de idempotência, assinatura de webhook errada (HMAC vs Ed25519), URL de refund, nomes de campo do Pix, status enum incorreto. |
+| `/malga-decode [json\|arquivo\|chargeId]` | Explica em linguagem natural um payload de charge, evento de webhook ou erro do Malga: linha do tempo, o que aconteceu, próximos passos. |
 
-## Install
+## Como instalar
 
 ### Claude Code (CLI)
 
@@ -59,7 +57,7 @@ claude plugin install malga-integration-toolkit@malga
 claude plugin list
 ```
 
-To configure automatic installation for an entire team, add to `.claude/settings.json` in the project:
+Se você quer que todo o seu time instale automaticamente, adicione o marketplace no `.claude/settings.json` do projeto:
 
 ```json
 {
@@ -67,67 +65,66 @@ To configure automatic installation for an entire team, add to `.claude/settings
 }
 ```
 
-### Claude Cowork (desktop app)
+### Claude Cowork (app desktop)
 
-1. Download the `.plugin` file from the latest [Release](../../releases).
-2. Open Claude Cowork → Plugins → drag-and-drop the file.
-3. Start a new conversation.
+1. Baixe o arquivo `.plugin` do release mais recente em [Releases](../../releases).
+2. Abra o Claude Cowork, vá em Plugins, e arraste o arquivo para a janela.
+3. Comece uma nova conversa para que as skills sejam carregadas.
 
-## What can these plugins do for you
+## Para que serve
 
-- **Developers** — accelerate first integration; get answers grounded in current Malga API docs without leaving your terminal/editor.
-- **Support / CX** — investigate transactions, decode failure codes, understand which provider/antifraud step failed.
-- **Sales / Solutions** — design integration architectures live for prospects with Malga-aware guidance.
+Para quem desenvolve integrações com a Malga, esses plugins aceleram a primeira implementação. O Claude responde com base na documentação atual da Malga, sem você precisar abrir o navegador para conferir nomes de endpoint, formatos de payload ou regras do Fluxo Inteligente.
 
-## Documentation
+Para times de suporte e CX, ajudam a investigar transações que falharam. O Claude entende a sequência (antifraude, provedor, 3DS2, captura, webhook) e consegue apontar onde provavelmente a cobrança travou.
 
-- Malga product docs: <https://docs.malga.io>
-- API reference: <https://docs.malga.io/api-reference/about-apis>
+Para times de Vendas e Solutions, dá pra desenhar arquitetura de integração ao vivo na frente do prospect. O Claude conhece os trade-offs entre integração via API, SDKs e conectores, e adapta a recomendação ao stack que o cliente já usa.
+
+## Documentação da Malga
+
+A fonte primária de verdade continua sendo a documentação oficial:
+
+- Documentação geral: <https://docs.malga.io>
+- Referência da API: <https://docs.malga.io/api-reference/about-apis>
 - Dashboard: <https://dashboard.malga.io>
 - Status: <https://status.malga.io>
 
-## Contributing
+Os plugins consolidam o conhecimento estável dessa documentação em skills que o Claude carrega sob demanda.
 
-Issues and pull requests welcome. To work on a plugin locally:
+## Como contribuir
+
+Issues e pull requests são bem-vindos. Para trabalhar localmente:
 
 ```bash
 git clone https://github.com/plughacker/malga-claude-plugins.git
 cd malga-claude-plugins
 
-# Register this folder as a local marketplace
+# Registra esta pasta como marketplace local (apontando direto pro código fonte)
 claude plugin marketplace add "$(pwd)"
 claude plugin install malga-integration-toolkit@malga
 
-# Validate any plugin manifest
+# Valida o manifest do plugin
 claude plugin validate malga-integration-toolkit/.claude-plugin/plugin.json
 ```
 
-Edits to the skill files reflect in the next new Claude conversation — no reinstall needed.
+Edições nos arquivos das skills aparecem automaticamente em uma nova conversa do Claude. Não precisa reinstalar a cada mudança, apenas abrir um chat novo.
 
-## License
+## Estrutura do repositório
 
-[MIT](./LICENSE) — © 2026 Malga
-
----
-
-## Português
-
-Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork.
-
-### Instalar (Claude Code)
-
-```bash
-claude plugin marketplace add plughacker/malga-claude-plugins
-claude plugin install malga-integration-toolkit@malga
+```
+malga-claude-plugins/
+├── .claude-plugin/
+│   └── marketplace.json          # define o marketplace e lista os plugins
+├── malga-integration-toolkit/    # o plugin em si
+│   ├── .claude-plugin/
+│   │   └── plugin.json
+│   ├── skills/                   # 28 skills (uma pasta por skill) + 30 references por provedor
+│   ├── commands/                 # 3 slash commands (/malga-setup, /malga-review, /malga-decode)
+│   └── README.md
+├── README.md                     # esta versão (PT-BR, default)
+├── README.en.md                  # versão em inglês
+└── LICENSE
 ```
 
-### Desenvolvimento local
+## Licença
 
-```bash
-git clone https://github.com/plughacker/malga-claude-plugins.git
-cd malga-claude-plugins
-claude plugin marketplace add "$(pwd)"
-claude plugin install malga-integration-toolkit@malga
-```
-
-Edições nas skills aparecem na próxima conversa nova — sem reinstalar.
+[MIT](./LICENSE), © 2026 Malga.
