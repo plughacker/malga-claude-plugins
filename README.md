@@ -47,7 +47,7 @@ Se você quer que todo o seu time instale automaticamente, adicione o marketplac
 |---|---|---|
 | [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.1 | Cobertura completa do produto Malga para devs, suporte e times de sales/solutions. |
 
-## O que tem aqui
+## Recursos
 
 **28 skills** · **30 references por provedor** · **3 slash commands**
 

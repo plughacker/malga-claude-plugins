@@ -7,9 +7,37 @@
 
 English · [Português](./README.md)
 
-> Official Malga plugins marketplace for Claude Code and Claude Cowork.
+Official Malga plugins marketplace for Claude Code and Claude Cowork. Maintained by the Malga Developer Experience team.
 
-This repository hosts a Claude plugins marketplace maintained by the Malga Developer Experience team.
+## What can these plugins do for you
+
+- **Developers** — accelerate first integration; get answers grounded in current Malga API docs without leaving your terminal/editor.
+- **Support / CX** — investigate transactions, decode failure codes, understand which provider/antifraud step failed.
+- **Sales / Solutions** — design integration architectures live for prospects with Malga-aware guidance.
+
+## Install
+
+### Claude Code (CLI)
+
+```bash
+claude plugin marketplace add plughacker/malga-claude-plugins
+claude plugin install malga-integration-toolkit@malga
+claude plugin list
+```
+
+To configure automatic installation for an entire team, add to `.claude/settings.json` in the project:
+
+```json
+{
+  "extraKnownMarketplaces": ["plughacker/malga-claude-plugins"]
+}
+```
+
+### Claude Cowork (desktop app)
+
+1. Download the `.plugin` file from the latest [Release](../../releases).
+2. Open Claude Cowork → Plugins → drag-and-drop the file.
+3. Start a new conversation.
 
 ## Plugin
 
@@ -17,7 +45,7 @@ This repository hosts a Claude plugins marketplace maintained by the Malga Devel
 |---|---|---|
 | [`malga-integration-toolkit`](./malga-integration-toolkit) | 0.8.1 | Full Malga product coverage for developers, support, and sales/solutions teams. |
 
-## What's inside
+## Features
 
 **28 skills** · **30 per-provider references** · **3 slash commands**
 
@@ -48,36 +76,6 @@ This repository hosts a Claude plugins marketplace maintained by the Malga Devel
 | `/malga-setup [lang] [method]` | Scaffold a starter Malga integration (Node, Python, PHP, etc. × credit, pix, boleto, etc.) with env vars, idempotency, error handling, and an optional webhook receiver stub. |
 | `/malga-review [path]` | Static review for Malga-specific issues: hardcoded credentials, REST/SDK schema mismatch, missing idempotency, wrong webhook signature (HMAC vs Ed25519), refund URL drift, Pix field names, status enum mistakes. |
 | `/malga-decode [json\|file\|chargeId]` | Explain a Malga charge response, webhook event, or error payload in plain language: timeline, what happened, what to do next. |
-
-## Install
-
-### Claude Code (CLI)
-
-```bash
-claude plugin marketplace add plughacker/malga-claude-plugins
-claude plugin install malga-integration-toolkit@malga
-claude plugin list
-```
-
-To configure automatic installation for an entire team, add to `.claude/settings.json` in the project:
-
-```json
-{
-  "extraKnownMarketplaces": ["plughacker/malga-claude-plugins"]
-}
-```
-
-### Claude Cowork (desktop app)
-
-1. Download the `.plugin` file from the latest [Release](../../releases).
-2. Open Claude Cowork → Plugins → drag-and-drop the file.
-3. Start a new conversation.
-
-## What can these plugins do for you
-
-- **Developers** — accelerate first integration; get answers grounded in current Malga API docs without leaving your terminal/editor.
-- **Support / CX** — investigate transactions, decode failure codes, understand which provider/antifraud step failed.
-- **Sales / Solutions** — design integration architectures live for prospects with Malga-aware guidance.
 
 ## Documentation
 
