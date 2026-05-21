@@ -9,6 +9,14 @@
 
 Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork. Mantido pelo time de Developer Experience da Malga.
 
+## Para que serve
+
+Para quem desenvolve integrações com a Malga, esses plugins aceleram a primeira implementação. O Claude responde com base na documentação atual da Malga, sem você precisar abrir o navegador para conferir nomes de endpoint, formatos de payload ou regras do Fluxo Inteligente.
+
+Para times de suporte e CX, ajudam a investigar transações que falharam. O Claude entende a sequência (antifraude, provedor, 3DS2, captura, webhook) e consegue apontar onde provavelmente a cobrança travou.
+
+Para times de Vendas e Solutions, dá pra desenhar arquitetura de integração ao vivo na frente do prospect. O Claude conhece os trade-offs entre integração via API, SDKs e conectores, e adapta a recomendação ao stack que o cliente já usa.
+
 ## Plugin
 
 | Plugin | Versão | Descrição |
@@ -70,14 +78,6 @@ Se você quer que todo o seu time instale automaticamente, adicione o marketplac
 1. Baixe o arquivo `.plugin` do release mais recente em [Releases](../../releases).
 2. Abra o Claude Cowork, vá em Plugins, e arraste o arquivo para a janela.
 3. Comece uma nova conversa para que as skills sejam carregadas.
-
-## Para que serve
-
-Para quem desenvolve integrações com a Malga, esses plugins aceleram a primeira implementação. O Claude responde com base na documentação atual da Malga, sem você precisar abrir o navegador para conferir nomes de endpoint, formatos de payload ou regras do Fluxo Inteligente.
-
-Para times de suporte e CX, ajudam a investigar transações que falharam. O Claude entende a sequência (antifraude, provedor, 3DS2, captura, webhook) e consegue apontar onde provavelmente a cobrança travou.
-
-Para times de Vendas e Solutions, dá pra desenhar arquitetura de integração ao vivo na frente do prospect. O Claude conhece os trade-offs entre integração via API, SDKs e conectores, e adapta a recomendação ao stack que o cliente já usa.
 
 ## Documentação da Malga
 
