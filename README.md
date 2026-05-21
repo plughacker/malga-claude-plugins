@@ -17,6 +17,30 @@ Para times de suporte e CX, ajudam a investigar transações que falharam. O Cla
 
 Para times de Vendas e Solutions, dá pra desenhar arquitetura de integração ao vivo na frente do prospect. O Claude conhece os trade-offs entre integração via API, SDKs e conectores, e adapta a recomendação ao stack que o cliente já usa.
 
+## Como instalar
+
+### Claude Code (CLI)
+
+```bash
+claude plugin marketplace add plughacker/malga-claude-plugins
+claude plugin install malga-integration-toolkit@malga
+claude plugin list
+```
+
+Se você quer que todo o seu time instale automaticamente, adicione o marketplace no `.claude/settings.json` do projeto:
+
+```json
+{
+  "extraKnownMarketplaces": ["plughacker/malga-claude-plugins"]
+}
+```
+
+### Claude Cowork (app desktop)
+
+1. Baixe o arquivo `.plugin` do release mais recente em [Releases](../../releases).
+2. Abra o Claude Cowork, vá em Plugins, e arraste o arquivo para a janela.
+3. Comece uma nova conversa para que as skills sejam carregadas.
+
 ## Plugin
 
 | Plugin | Versão | Descrição |
@@ -54,30 +78,6 @@ Para times de Vendas e Solutions, dá pra desenhar arquitetura de integração a
 | `/malga-setup [lang] [method]` | Escafolda um starter de integração Malga (Node, Python, PHP, etc. × cartão, pix, boleto, etc.) com env vars, idempotência, tratamento de erros e receiver de webhook opcional. |
 | `/malga-review [path]` | Revisão estática procurando problemas específicos do Malga: credenciais hardcoded, schema REST/SDK errado, falta de idempotência, assinatura de webhook errada (HMAC vs Ed25519), URL de refund, nomes de campo do Pix, status enum incorreto. |
 | `/malga-decode [json\|arquivo\|chargeId]` | Explica em linguagem natural um payload de charge, evento de webhook ou erro do Malga: linha do tempo, o que aconteceu, próximos passos. |
-
-## Como instalar
-
-### Claude Code (CLI)
-
-```bash
-claude plugin marketplace add plughacker/malga-claude-plugins
-claude plugin install malga-integration-toolkit@malga
-claude plugin list
-```
-
-Se você quer que todo o seu time instale automaticamente, adicione o marketplace no `.claude/settings.json` do projeto:
-
-```json
-{
-  "extraKnownMarketplaces": ["plughacker/malga-claude-plugins"]
-}
-```
-
-### Claude Cowork (app desktop)
-
-1. Baixe o arquivo `.plugin` do release mais recente em [Releases](../../releases).
-2. Abra o Claude Cowork, vá em Plugins, e arraste o arquivo para a janela.
-3. Comece uma nova conversa para que as skills sejam carregadas.
 
 ## Documentação da Malga
 
