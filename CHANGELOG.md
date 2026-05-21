@@ -2,6 +2,19 @@
 
 All notable changes to `malga-integration-toolkit` are documented here. Format inspired by [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.8.1] — 2026-05-21
+
+### Changed
+
+- `release-notes-tracking` skill: removed two stale references to `MAINTAINING.md` (the maintainer procedure now lives in a user-global skill, not in the repo).
+
+### Repo housekeeping (not shipped)
+
+- Added Malga logo to `README.md` and `README.pt-BR.md` (matches the `malga-node` repo header style).
+- Removed `MAINTAINING.md`; its content was migrated into the user-global `malga-plugin-maintenance` skill.
+- Tracked `scripts/release.sh` (CHANGELOG section extractor for `gh release create`).
+- `CLAUDE.md` updated to point at the maintenance skill instead of the deleted `MAINTAINING.md`.
+
 ## [0.8.0] — 2026-05-20
 
 ### Added

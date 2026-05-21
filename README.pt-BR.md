@@ -1,6 +1,11 @@
-[English](./README.md) · Português
+<div align="center">
+  <picture>
+    <img alt="Malga" src="https://raw.githubusercontent.com/plughacker/malga-node/main/docs/assets/malga.png" width="85">
+  </picture>
+  <h1>Plugins da Malga para Claude</h1>
+</div>
 
-# Plugins da Malga para Claude
+[English](./README.md) · Português
 
 Marketplace oficial de plugins da Malga para Claude Code e Claude Cowork. Mantido pelo time de Developer Experience da Malga.
 

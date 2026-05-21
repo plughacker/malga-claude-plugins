@@ -92,7 +92,7 @@ For an active integration:
 
 - **Weekly** — scan the latest 1-2 release notes; flag anything relevant.
 - **Monthly** — review the SDK package versions; upgrade if a patch or minor is available; test in sandbox.
-- **Quarterly** — full audit of the integration against the latest docs (use `MAINTAINING.md` procedure).
+- **Quarterly** — full audit of the integration against the latest docs.
 
 ## Pitfalls
 
@@ -104,7 +104,6 @@ For an active integration:
 
 ## Cross-references
 
-- `MAINTAINING.md` at the marketplace root for the audit procedure after a relevant release.
 - `providers` skill for the per-provider page that may be the target of a release.
 - `webhooks` for v1.0 → v1.1 migration context.
 - `sdk-node` for SDK version tracking.
