@@ -33,11 +33,11 @@ To configure automatic installation for an entire team, add to `.claude/settings
 }
 ```
 
-### Claude Cowork (desktop app)
+### Claude Desktop (Cowork / Code)
 
-1. Download the `.plugin` file from the latest [Release](../../releases).
-2. Open Claude Cowork → Plugins → drag-and-drop the file.
-3. Start a new conversation.
+1. Register the marketplace once, via the CLI above or the project's `.claude/settings.json`.
+2. In the app, click the `+` next to the prompt box → Plugins → Add plugin.
+3. Select `malga-integration-toolkit` and start a new conversation.
 
 ## Plugin
 

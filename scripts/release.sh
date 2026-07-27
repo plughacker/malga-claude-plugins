@@ -9,16 +9,15 @@
 # Behaviour:
 #   1. Reads version from malga-integration-toolkit/.claude-plugin/plugin.json (or argv).
 #   2. Extracts the matching section from CHANGELOG.md.
-#   3. Calls `gh release create <tag> malga-integration-toolkit.plugin --notes-file <tmpfile>`.
+#   3. Calls `gh release create <tag> --notes-file <tmpfile>`.
 #
-# Requires: gh CLI authenticated, .plugin file at repo root, CHANGELOG entry for the version.
+# Requires: gh CLI authenticated, CHANGELOG entry for the version.
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
-PLUGIN_FILE="malga-integration-toolkit.plugin"
 CHANGELOG="CHANGELOG.md"
 MANIFEST="malga-integration-toolkit/.claude-plugin/plugin.json"
 
@@ -36,11 +35,6 @@ else
 fi
 
 echo "→ Releasing $TAG (version $VERSION)"
-
-if [[ ! -f "$PLUGIN_FILE" ]]; then
-  echo "missing $PLUGIN_FILE — repackage the plugin first" >&2
-  exit 1
-fi
 
 # Extract the section: from `## [VERSION]` line, up to (but not including) the next `## [` line.
 NOTES_TMP="$(mktemp -t malga-release-notes.XXXXXX.md)"
@@ -71,7 +65,7 @@ esac
 # Title: optional argv[2], else just the tag.
 TITLE="${2:-$TAG}"
 
-gh release create "$TAG" "$PLUGIN_FILE" \
+gh release create "$TAG" \
   --title "$TITLE" \
   --notes-file "$NOTES_TMP"
 

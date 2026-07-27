@@ -47,7 +47,7 @@ The skills carry the **stable integration intelligence** — payload shapes, dec
 
 ### Installation
 
-This is a Claude plugin. Install through Claude's plugin UI (Cowork or Claude Code), or load the `.plugin` file directly.
+This is a Claude plugin. Install through Claude's plugin UI (Cowork or Claude Code), or from the `malga` marketplace: `claude plugin marketplace add plughacker/malga-claude-plugins`.
 
 ### Audience
 
@@ -115,7 +115,7 @@ As skills carregam a **inteligência estável de integração** — formatos de 
 
 ### Instalação
 
-Plugin para o Claude. Instale pela UI de plugins (Cowork ou Claude Code), ou carregue o arquivo `.plugin` direto.
+Plugin para o Claude. Instale pela UI de plugins (Cowork ou Claude Code), ou pelo marketplace `malga`: `claude plugin marketplace add plughacker/malga-claude-plugins`.
 
 ### Público
 

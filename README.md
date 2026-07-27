@@ -35,11 +35,11 @@ Se você quer que todo o seu time instale automaticamente, adicione o marketplac
 }
 ```
 
-### Claude Cowork (app desktop)
+### Claude Desktop (Cowork / Code)
 
-1. Baixe o arquivo `.plugin` do release mais recente em [Releases](../../releases).
-2. Abra o Claude Cowork, vá em Plugins, e arraste o arquivo para a janela.
-3. Comece uma nova conversa para que as skills sejam carregadas.
+1. Registre o marketplace uma vez, pelo CLI acima ou pelo `.claude/settings.json` do projeto.
+2. No app, clique no `+` ao lado da caixa de mensagem e vá em Plugins → Add plugin.
+3. Selecione `malga-integration-toolkit` e comece uma nova conversa para que as skills sejam carregadas.
 
 ## Plugin
 
