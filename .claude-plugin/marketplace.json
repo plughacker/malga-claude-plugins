@@ -12,7 +12,7 @@
     {
       "name": "malga-integration-toolkit",
       "source": "./malga-integration-toolkit",
-      "description": "Malga full-product integration toolkit. 15 skills covering Charges/Sessions, SDK Node, Checkout SDK, Payment Link, VTEX, Tokenization, Smart Flows, Payment Methods, 3DS2, Antifraud, Split, Recurrence, Webhooks (Ed25519), Analytics.",
+      "description": "Malga full-product integration toolkit. 28 skills covering Charges/Sessions, SDK Node, Checkout SDK, Payment Link, VTEX, Tokenization, Smart Flows, Payment Methods, 3DS2, Antifraud, Split, Recurrence, Webhooks (Ed25519), Analytics.",
       "version": "0.8.1",
       "homepage": "https://docs.malga.io",
       "author": {

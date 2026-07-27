@@ -1,12 +1,12 @@
 {
   "name": "malga-integration-toolkit",
   "version": "0.8.1",
-  "description": "Malga full-product integration toolkit. Covers online checkout (Charges API, Sessions, SDKs), payment methods (credit, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), payment links, VTEX, tokenization (PCI Hosted Fields, network tokens), smart flows (orchestration), 3DS2, antifraud (sync/async/hybrid), split payments, recurrence/subscriptions, webhooks (Ed25519 v1.1), and analytics. 15 skills providing integration intelligence grounded in the official Malga documentation.",
+  "description": "Malga full-product integration toolkit. Covers online checkout (Charges API, Sessions, SDKs), payment methods (credit, Pix, Boleto, NuPay, Drip, Voucher, PicPay, Apple Pay, Click to Pay), payment links, VTEX, tokenization (PCI Hosted Fields, network tokens), smart flows (orchestration), 3DS2, antifraud (sync/async/hybrid), split payments, recurrence/subscriptions, webhooks (Ed25519 v1.1), and analytics. 28 skills providing integration intelligence grounded in the official Malga documentation.",
   "author": {
     "name": "Malga Developer Experience"
   },
   "homepage": "https://docs.malga.io",
-  "repository": "https://github.com/plughacker",
+  "repository": "https://github.com/plughacker/malga-claude-plugins",
   "license": "MIT",
   "keywords": [
     "malga",
