@@ -54,7 +54,7 @@ await malga.charges.create({
     installments: 1,
     card: {
       holderName:     'João da Silva',
-      number:         '5453881028277600',
+      number:         '4111111111111111',
       cvv:            '170',
       expirationDate: '10/2030'
     }

@@ -24,7 +24,7 @@ POST /v1/charges
   "paymentSource": {
     "sourceType": "card",
     "card": {
-      "cardNumber":         "5261424250184574",
+      "cardNumber":         "4111111111111111",
       "cardCvv":            "321",
       "cardExpirationDate": "06/2028",
       "cardHolderName":     "JOAO DA SILVA"
